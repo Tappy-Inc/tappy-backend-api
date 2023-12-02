@@ -1,4 +1,4 @@
-FROM python:3.8.9
+FROM python:3.11
 
 ## Library: docker-compose-wait
 ## For more details about this tool
