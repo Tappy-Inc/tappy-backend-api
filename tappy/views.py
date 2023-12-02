@@ -22,7 +22,6 @@ def health_check_view(request):
     logger.info(f"authenticated: {request.user}")
     content = {
         "status_code": 200,
-        "status": "OK",
-        "version": "0.6"
+        "status": "OK"
     }
     return Response(content)
