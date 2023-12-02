@@ -70,7 +70,9 @@ INSTALLED_APPS = [
     # Library: django-cors-headers
     'corsheaders',
     # Domain
-    'domain.user'
+    'domain.common',
+    'domain.system',
+    'domain.user',
     # API
 ]
 
