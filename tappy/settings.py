@@ -13,13 +13,19 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 from pathlib import Path
 import os
 import sys
+
 # Library: django-environ
 import environ
+
+# Library: djangorestframework-simplejwt
+import datetime
+
 # Logging
 import logging
 
 # Logging
 logger = logging.getLogger(__name__)
+
 # Library: django-environ
 env = environ.Env()
 environ.Env.read_env()
@@ -55,6 +61,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # Library: djangorestframework
+    'rest_framework',
+    # Library: drf-yasg
+    'drf_yasg',
     # Domain
     'domain.user'
     # API
@@ -182,4 +192,35 @@ LOGGING = {
             'propagate': False,
         },
     },
+}
+
+# Library: djangorestframework-simplejwt
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': datetime.timedelta(minutes=60),
+    'REFRESH_TOKEN_LIFETIME': datetime.timedelta(days=1)
+}
+
+# Library: djangorestframework
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        # Library: djangorestframework-simplejwt
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 10,
+}
+
+# Library: drf-yasg
+SWAGGER_SETTINGS = {
+    'USE_SESSION_AUTH': False,
+    'SECURITY_DEFINITIONS': {
+        # 'Basic': {
+        #       'type': 'basic'
+        # },
+        'Bearer': {
+            'type': 'apiKey',
+            'name': 'Authorization',
+            'in': 'header'
+        }
+    }
 }

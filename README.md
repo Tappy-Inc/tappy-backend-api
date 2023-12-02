@@ -33,3 +33,8 @@ Install all dependencies at once by running:
 
 To run the server, use the following command:
 ```python manage.py runserver```
+
+pip install djangorestframework-simplejwt
+pip install drf-yasg
+
+mkdir domain/user && python manage.py startapp user domain/user
