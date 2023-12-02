@@ -26,6 +26,12 @@ The following packages are required for this project:
 3. psycopg2:
 ```pip install psycopg2```
 
+4. djangorestframework-simplejwt:
+```pip install djangorestframework-simplejwt```
+
+5. drf-yasg:
+```pip install drf-yasg```
+
 Install all dependencies at once by running:
 ```pip install -r requirements.txt```
 
@@ -34,7 +40,8 @@ Install all dependencies at once by running:
 To run the server, use the following command:
 ```python manage.py runserver```
 
-pip install djangorestframework-simplejwt
-pip install drf-yasg
+## Additional Setup
 
-mkdir domain/user && python manage.py startapp user domain/user
+Create a new directory and start a new Django app:
+```mkdir domain/user && python manage.py startapp user domain/user```
+
