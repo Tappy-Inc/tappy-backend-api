@@ -1,0 +1,36 @@
+version: '3.9'
+services:
+  postgres:
+    image: postgres
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+      - ./backups:/backups
+    environment:
+      - POSTGRES_DB=django
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    # command: ["postgres", "-c", "log_statement=all"]
+    ports:
+    - "5432:5432"
+  django:
+    build:
+      context: .
+      dockerfile: Dockerfile.local
+    ## Library: docker-compose-wait /wait
+    ## it can wait for multiple hosts using WAIT_HOSTS: postgres:5432
+    command: >
+      sh -c "/wait &&
+             python manage.py collectstatic --no-input &&
+             python manage.py makemigrations --noinput &&
+             python manage.py migrate --noinput &&
+             python manage.py runserver 0.0.0.0:8000"
+    volumes:
+    - .:/app
+    ports:
+    - "8000:8000"
+    env_file:
+      - .env
+    depends_on:
+      - postgres
+    environment:
+      WAIT_HOSTS: postgres:5432
