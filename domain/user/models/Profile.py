@@ -26,6 +26,7 @@ class Profile(BaseModel):
     civil_status = models.CharField(max_length=10, choices=CIVIL_STATUS_CHOICES, blank=True)
     employee_id = models.CharField(max_length=30, unique=True)
     birth_date = models.DateField()
+    manager = models.ForeignKey(User, related_name='manager', on_delete=models.SET_NULL, null=True)
 
     def __str__(self):  # pragma: no cover
         return self.user.username
