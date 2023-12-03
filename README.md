@@ -32,6 +32,9 @@ The following packages are required for this project:
 5. drf-yasg:
 ```pip install drf-yasg```
 
+6. django-cors-headers:
+```pip install django-cors-headers```
+
 Install all dependencies at once by running:
 ```pip install -r requirements.txt```
 
@@ -45,3 +48,8 @@ To run the server, use the following command:
 Create a new directory and start a new Django app:
 ```mkdir domain/user && python manage.py startapp user domain/user```
 
+## TODO
+
+- Work Schedule related to User (All Type of Users)
+- Work Information related to User (Position, Client, Compensation package, )
+- Work History - employee work history (Promotion history)

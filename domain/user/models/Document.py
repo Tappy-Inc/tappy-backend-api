@@ -15,5 +15,3 @@ class Document(BaseModel):
 
     def __str__(self):
         return self.file_name
-
-
