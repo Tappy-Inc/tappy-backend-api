@@ -3,7 +3,7 @@ from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.pagination import PageNumberPagination
 
-from .serializers import ReadJobPositionSerializer, CreateJobPositionSerializer
+from .serializers import PaginateQueryReadJobPositionSerializer, PaginateReadJobPositionSerializer, ReadJobPositionSerializer, CreateJobPositionSerializer
 
 from domain.system.services.department import get_department_by_id
 from domain.system.services.job_position import get_job_positions_by_department, create_job_position
@@ -21,10 +21,11 @@ class DepartmentsIdJobPositionsAPIView(APIView):
     @staticmethod
     @swagger_auto_schema(
         responses={
-            200: ReadJobPositionSerializer(many=True)
+            200: PaginateReadJobPositionSerializer()
         },
         operation_id="job_positions_list",
-        tags=["system-management.job-positions"],
+        tags=["system-management.departments"],
+        query_serializer=PaginateQueryReadJobPositionSerializer()
     )
     def get(request, department_id):
         logger.info(f"authenticated: {request.user}")
@@ -39,7 +40,7 @@ class DepartmentsIdJobPositionsAPIView(APIView):
         request_body=CreateJobPositionSerializer,
         operation_description="description",
         operation_id="job_positions_create",
-        tags=["system-management.job-positions"],
+        tags=["system-management.departments"],
         responses={
             200: ReadJobPositionSerializer()
         }

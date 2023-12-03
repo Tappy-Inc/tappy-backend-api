@@ -9,7 +9,7 @@ logger = logging.getLogger(__name__)
 
 class ReadDepartmentSerializer(serializers.ModelSerializer):
     class Meta:
-        ref_name = "system-management.departments.ReadDepartmentSerializer"
+        ref_name = "system-management.departments.id.job-positions.ReadDepartmentSerializer"
         model = Department
         fields = [
             'id',
@@ -22,7 +22,7 @@ class ReadDepartmentSerializer(serializers.ModelSerializer):
 class CreateDepartmentSerializer(serializers.ModelSerializer):
 
     class Meta:
-        ref_name = "system-management.departments.CreateDepartmentSerializer"
+        ref_name = "system-management.departments.id.job-positions.CreateDepartmentSerializer"
         model = Department
         fields = [
             'department_name'
@@ -32,7 +32,7 @@ class CreateDepartmentSerializer(serializers.ModelSerializer):
 class PaginateReadDepartmentSerializer(serializers.Serializer): # noqa
 
     class Meta:
-        ref_name = "system-management.departments.PaginateReadDepartmentSerializer"
+        ref_name = "system-management.departments.id.job-positions.PaginateReadDepartmentSerializer"
 
     count = serializers.IntegerField()
     next = serializers.URLField()
@@ -43,6 +43,6 @@ class PaginateReadDepartmentSerializer(serializers.Serializer): # noqa
 class PaginateQueryReadDepartmentSerializer(serializers.Serializer): # noqa
 
     class Meta:
-        ref_name = "system-management.departments.PaginateQueryReadDepartmentSerializer"
+        ref_name = "system-management.departments.id.job-positions.PaginateQueryReadDepartmentSerializer"
 
     page = serializers.IntegerField(required=False, help_text="A page number within the paginated result set.")
