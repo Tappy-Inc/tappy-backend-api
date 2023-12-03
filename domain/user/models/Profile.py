@@ -1,4 +1,5 @@
 from django.db import models
+from simple_history.models import HistoricalRecords
 from domain.common.models.Base import BaseModel
 from domain.system.models.Gender import Gender
 
@@ -27,6 +28,7 @@ class Profile(BaseModel):
     employee_id = models.CharField(max_length=30, unique=True)
     birth_date = models.DateField()
     manager = models.ForeignKey(User, related_name='managed_profile', on_delete=models.SET_NULL, null=True)
+    history = HistoricalRecords()
 
     def __str__(self):  # pragma: no cover
         return self.user.username

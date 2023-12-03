@@ -1,7 +1,7 @@
 from django.db import models
-from domain.common.models.Base import BaseModel
 # Library: django-simple-history
 from simple_history.models import HistoricalRecords
+from domain.common.models.Base import BaseModel
 
 import logging
 

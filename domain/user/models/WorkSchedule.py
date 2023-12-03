@@ -1,4 +1,5 @@
 from django.db import models
+from simple_history.models import HistoricalRecords
 from domain.common.models.Base import BaseModel
 from django.contrib.auth.models import User
 
@@ -22,6 +23,7 @@ class WorkSchedule(BaseModel):
     shift_start = models.TimeField()
     shift_end = models.TimeField()
     is_rest_day = models.BooleanField(default=False)
+    history = HistoricalRecords()
 
     def __str__(self):
         return f'{self.user.username} - {self.day_of_week}'

@@ -50,6 +50,7 @@ Create a new directory and start a new Django app:
 
 ## TODO
 
-- Work Schedule related to User (All Type of Users)
-- Work Information related to User (Position, Client, Compensation package, )
-- Work History - employee work history (Promotion history)
+- [x] Work Schedule related to User (All Type of Users)
+- [x] Work Information related to User (Position, Client, Compensation package, )
+- [x] Work History - employee work history (Promotion history)
+- 
