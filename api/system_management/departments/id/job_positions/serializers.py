@@ -5,7 +5,7 @@ from domain.system.models import JobPosition
 
 class ReadJobPositionSerializer(serializers.ModelSerializer):
     class Meta:
-        ref_name = "system-management.job-positions.ReadJobPositionSerializer"
+        ref_name = "system-management.departments.id.job-positions.ReadJobPositionSerializer"
         model = JobPosition
         fields = [
             'id',
@@ -17,7 +17,7 @@ class ReadJobPositionSerializer(serializers.ModelSerializer):
 
 class CreateJobPositionSerializer(serializers.ModelSerializer):
     class Meta:
-        ref_name = "system-management.job-positions.CreateJobPositionSerializer"
+        ref_name = "system-management.departments.id.job-positions.CreateJobPositionSerializer"
         model = JobPosition
         fields = [
             'position_name',
@@ -26,7 +26,7 @@ class CreateJobPositionSerializer(serializers.ModelSerializer):
 class PaginateReadJobPositionSerializer(serializers.Serializer): # noqa
 
     class Meta:
-        ref_name = "system-management.job-positions.PaginateReadJobPositionSerializer"
+        ref_name = "system-management.departments.id.job-positions.PaginateReadJobPositionSerializer"
 
     count = serializers.IntegerField()
     next = serializers.URLField()
@@ -36,6 +36,6 @@ class PaginateReadJobPositionSerializer(serializers.Serializer): # noqa
 class PaginateQueryReadJobPositionSerializer(serializers.Serializer): # noqa
 
     class Meta:
-        ref_name = "system-management.job-positions.PaginateQueryReadJobPositionSerializer"
+        ref_name = "system-management.departments.id.job-positions.PaginateQueryReadJobPositionSerializer"
 
     page = serializers.IntegerField(required=False, help_text="A page number within the paginated result set.")
