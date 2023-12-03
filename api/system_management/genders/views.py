@@ -30,7 +30,7 @@ class GendersAPIView(APIView):
             200: PaginateReadGenderSerializer()
         },
         operation_id="genders_list",
-        tags=["system_management.genders"],
+        tags=["system-management.genders"],
         query_serializer=PaginateQueryReadGenderSerializer()
     )
     def get(request):
@@ -46,7 +46,7 @@ class GendersAPIView(APIView):
         request_body=CreateGenderSerializer,
         operation_description="description",
         operation_id="genders_create",
-        tags=["system_management.genders"],
+        tags=["system-management.genders"],
         responses={
             200: ReadGenderSerializer()
         }

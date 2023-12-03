@@ -9,7 +9,7 @@ logger = logging.getLogger(__name__)
 
 class ReadGenderSerializer(serializers.ModelSerializer):
     class Meta:
-        ref_name = "system_management.genders.ReadGenderSerializer"
+        ref_name = "system-management.genders.ReadGenderSerializer"
         model = Gender
         fields = [
             'id',
@@ -22,7 +22,7 @@ class ReadGenderSerializer(serializers.ModelSerializer):
 class CreateGenderSerializer(serializers.ModelSerializer):
 
     class Meta:
-        ref_name = "system_management.genders.CreateGenderSerializer"
+        ref_name = "system-management.genders.CreateGenderSerializer"
         model = Gender
         fields = [
             'gender'
@@ -32,7 +32,7 @@ class CreateGenderSerializer(serializers.ModelSerializer):
 class PaginateReadGenderSerializer(serializers.Serializer): # noqa
 
     class Meta:
-        ref_name = "system_management.genders.PaginateReadGenderSerializer"
+        ref_name = "system-management.genders.PaginateReadGenderSerializer"
 
     count = serializers.IntegerField()
     next = serializers.URLField()
@@ -43,6 +43,6 @@ class PaginateReadGenderSerializer(serializers.Serializer): # noqa
 class PaginateQueryReadGenderSerializer(serializers.Serializer): # noqa
 
     class Meta:
-        ref_name = "system_management.genders.PaginateQueryReadGenderSerializer"
+        ref_name = "system-management.genders.PaginateQueryReadGenderSerializer"
 
     page = serializers.IntegerField(required=False, help_text="A page number within the paginated result set.")
