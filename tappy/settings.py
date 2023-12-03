@@ -69,6 +69,8 @@ INSTALLED_APPS = [
     'drf_yasg',
     # Library: django-cors-headers
     'corsheaders',
+    # Library: django-simple-history
+    'simple_history',
     # Domain
     'domain.common',
     'domain.system',
@@ -87,6 +89,8 @@ MIDDLEWARE = [
     # Library: django-cors-headers
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
+    # Library: django-simple-history
+    'simple_history.middleware.HistoryRequestMiddleware',
 ]
 
 ROOT_URLCONF = 'tappy.urls'
