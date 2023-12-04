@@ -240,6 +240,7 @@ SWAGGER_SETTINGS = {
 }
 
 # Library: django-cors-headers
+CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOW_ALL_ORIGINS = False
 CORS_ALLOWED_ORIGINS = [
     'https://hris.tappy.com.ph'
