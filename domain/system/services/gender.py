@@ -1,3 +1,4 @@
+from django.utils import timezone
 from typing import List
 
 # Models
@@ -31,9 +32,13 @@ def create_gender(gender: str) -> Gender:
     return gender
 
 
-def update_gender(gender: Gender, new_gender: str) -> Gender:
+def update_gender(
+        gender: Gender,
+        new_gender: str
+    ) -> Gender:
     gender.gender = new_gender
+    gender.updated_at = timezone.now()
     gender.save()
-
     logger.info(f"\"{gender}\" has been updated.")
     return gender
+
