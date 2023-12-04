@@ -73,6 +73,7 @@ INSTALLED_APPS = [
     'simple_history',
     # Domain
     'domain.common',
+    'domain.authentication',
     'domain.system',
     'domain.user',
     # API
