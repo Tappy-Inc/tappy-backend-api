@@ -11,7 +11,7 @@ class AuthenticationLogoutAPIView(APIView):
     @staticmethod
     @swagger_auto_schema(
         operation_description="Logout user and invalidate session",
-        operation_id="logout_user",
+        operation_id="logout",
         tags=["authentication"],
         responses={
             200: LogoutSerializer,

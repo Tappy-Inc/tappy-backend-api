@@ -24,7 +24,7 @@ class AuthenticationSessionAPIView(APIView):
     @staticmethod
     @swagger_auto_schema(
         operation_description="Validate session cookie",
-        operation_id="validate_cookie",
+        operation_id="session",
         tags=["authentication"],
         responses={
             200: ReadCredentialSerializer,
