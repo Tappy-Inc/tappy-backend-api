@@ -246,6 +246,3 @@ CORS_ALLOW_ALL_ORIGINS = False
 CORS_ALLOWED_ORIGINS = [
     'https://hris.tappy.com.ph'
 ]
-# Cookies
-SESSION_COOKIE_SAMESITE = None
-CSRF_COOKIE_SAMESITE = None
