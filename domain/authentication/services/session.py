@@ -50,6 +50,12 @@ def get_session_by_key_and_value(session_key: str, session_value: str) -> Sessio
     return session
 
 
+def delete_sessions_by_key(session_key: str) -> None:
+    sessions = Session.objects.filter(session_key=session_key)
+    sessions.delete()
+    logger.info(f"Sessions with key \"{session_key}\" have been deleted.")
+
+
 def update_session(session: Session, new_session_key: str, new_session_data: str, new_expire_date: datetime) -> Session:
     session.session_key = new_session_key
     session.session_data = new_session_data

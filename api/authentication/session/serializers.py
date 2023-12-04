@@ -8,7 +8,7 @@ from django.contrib.auth.models import User
 class ReadUserSerializer(serializers.ModelSerializer):
 
     class Meta:
-        ref_name = "authentication.login.ReadUserSerializer"
+        ref_name = "authentication.session.ReadUserSerializer"
         model = User
         fields = ['username', 'email', 'first_name', 'last_name']
         
@@ -18,7 +18,7 @@ class LoginSerializer(serializers.Serializer):
     password = serializers.CharField()
 
     class Meta:
-        ref_name = "authentication.login.LoginSerializer"
+        ref_name = "authentication.session.LoginSerializer"
 
 
 class ReadCredentialSerializer(serializers.Serializer):
@@ -27,12 +27,12 @@ class ReadCredentialSerializer(serializers.Serializer):
     user = ReadUserSerializer(read_only=True)
 
     class Meta:
-        ref_name = "authentication.login.ReadCredentialSerializer"
+        ref_name = "authentication.session.ReadCredentialSerializer"
 
 
 class ErrorDetailSerializer(serializers.Serializer):
     detail = serializers.CharField()
 
     class Meta:
-        ref_name = "authentication.login.ErrorDetailSerializer"
+        ref_name = "authentication.session.ErrorDetailSerializer"
 
