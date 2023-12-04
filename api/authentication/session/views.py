@@ -46,7 +46,12 @@ class AuthenticationSessionAPIView(APIView):
             session_key=request.session.session_key,
             session_value=session_key_value
         )
-        
+
+        if not session:
+            error_serializer = ErrorDetailSerializer(data={'detail': 'Session not found'})
+            if error_serializer.is_valid():
+                return Response(error_serializer.validated_data, status=401)
+
         # Expired Session
         if session and session.expire_date < timezone.now():
             error_serializer = ErrorDetailSerializer(data={'detail': 'Session key expired'})
