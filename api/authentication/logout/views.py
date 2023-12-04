@@ -36,5 +36,5 @@ class AuthenticationLogoutAPIView(APIView):
         logout_serializer = LogoutSerializer(data={'detail': 'Logout successful'})
         if logout_serializer.is_valid():
             response = Response(logout_serializer.validated_data)
-            response.delete_cookie(session_key, samesite='None', secure=True)
+            response.delete_cookie(session_key, samesite='lax', secure=True)
             return response
