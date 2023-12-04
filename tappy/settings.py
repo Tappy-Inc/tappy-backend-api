@@ -241,3 +241,7 @@ SWAGGER_SETTINGS = {
 
 # Library: django-cors-headers
 CORS_ALLOW_ALL_ORIGINS = True
+
+# Cookies
+SESSION_COOKIE_SAMESITE = None
+CSRF_COOKIE_SAMESITE = None
