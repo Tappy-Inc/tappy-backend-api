@@ -1,3 +1,4 @@
+from django.utils import timezone
 from typing import List
 
 # Models
@@ -31,9 +32,12 @@ def create_department(department_name: str) -> Department:
     return department
 
 
-def update_department(department: Department, new_department_name: str) -> Department:
+def update_department(
+        department: Department,
+        new_department_name: str
+    ) -> Department:
     department.department_name = new_department_name
+    department.updated_at = timezone.now()
     department.save()
-
     logger.info(f"\"{department}\" has been updated.")
     return department

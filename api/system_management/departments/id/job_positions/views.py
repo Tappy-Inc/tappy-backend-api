@@ -24,7 +24,7 @@ class DepartmentsIdJobPositionsAPIView(APIView):
             200: PaginateReadJobPositionSerializer()
         },
         operation_id="job_positions_list",
-        tags=["system-management.departments"],
+        tags=["system-management.departments.id.job-positions"],
         query_serializer=PaginateQueryReadJobPositionSerializer()
     )
     def get(request, department_id):
@@ -40,7 +40,7 @@ class DepartmentsIdJobPositionsAPIView(APIView):
         request_body=CreateJobPositionSerializer,
         operation_description="description",
         operation_id="job_positions_create",
-        tags=["system-management.departments"],
+        tags=["system-management.departments.id.job-positions"],
         responses={
             200: ReadJobPositionSerializer()
         }
