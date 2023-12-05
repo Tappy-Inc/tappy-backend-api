@@ -67,6 +67,5 @@ class AuthenticationSessionAPIView(APIView):
         }
         credential_serializer = ReadCredentialSerializer(data)
         response = Response(credential_serializer.data)
-        # Set the session key in the cookies
-        response.set_cookie(session.session_key, session.session_data)
+
         return response
