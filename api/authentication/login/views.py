@@ -3,9 +3,6 @@ from django.utils import timezone
 from datetime import timedelta
 from django.contrib.auth import authenticate
 
-# Reqeusts
-from urllib.parse import urlparse
-
 # DRF
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -39,9 +36,6 @@ class AuthenticationLoginAPIView(APIView):
     )
     def post(request):
 
-        referrer = request.META.get('HTTP_REFERER')
-        print(referrer)
-
         if request.session.session_key is None:
             request.session.create()
 
@@ -70,14 +64,8 @@ class AuthenticationLoginAPIView(APIView):
             credential_serializer = ReadCredentialSerializer(data)
             response = Response(credential_serializer.data)
             # Set cookie for .tappy.com.ph
-            referrer_url = request.META.get('HTTP_REFERER', '')
-            referrer_domain = urlparse(referrer_url).netloc
-            # Remove port from localhost
-            if 'localhost' in referrer_domain:
-                referrer_domain = 'localhost'
-            print(f'Referrer domain: {referrer_domain}')
-            response.set_cookie('sessionid', session_key, max_age=86400, domain=referrer_domain, samesite='None', secure=False)
-            response.set_cookie(session.session_key, session.session_data, max_age=86400, domain=referrer_domain, samesite='None', secure=False)
+            response.set_cookie('sessionid', session_key, max_age=86400, domain=".tappy.com.ph", samesite='None', secure=True)
+            response.set_cookie(session.session_key, session.session_data, max_age=86400, domain=".tappy.com.ph", samesite='None', secure=True)
             return response
         else:
             error_serializer = ErrorDetailSerializer(data={'detail': 'No active account found with the given credentials'})
