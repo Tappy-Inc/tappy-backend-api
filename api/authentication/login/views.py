@@ -38,7 +38,9 @@ class AuthenticationLoginAPIView(APIView):
 
         if request.session.session_key is None:
             request.session.create()
+
         session_key = request.session.session_key
+        response.set_cookie('sessionid', session_key, max_age=86400, domain=".tappy.com.ph", samesite='None', secure=True)
 
         login_serializer = LoginSerializer(data=request.data)
         login_serializer.is_valid(raise_exception=True)
