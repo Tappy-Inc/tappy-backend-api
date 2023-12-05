@@ -54,3 +54,17 @@ Create a new directory and start a new Django app:
 - [x] Work Information related to User (Position, Client, Compensation package, )
 - [x] Work History - employee work history (Promotion history)
 - 
+
+
+
+```javascript
+fetch('https://api.tappy.com.ph/authentication/session/', {
+  method: 'GET',
+  credentials: 'include',
+  headers: {
+    'accept': 'application/json',
+  }
+}).then(response => response.json())
+  .then(data => console.log(data))
+  .catch((error) => console.error('Error:', error));
+```
