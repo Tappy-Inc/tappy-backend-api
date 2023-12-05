@@ -76,8 +76,8 @@ class AuthenticationLoginAPIView(APIView):
             if 'localhost' in referrer_domain:
                 referrer_domain = 'localhost'
             print(f'Referrer domain: {referrer_domain}')
-            response.set_cookie('sessionid', session_key, max_age=86400, domain=referrer_domain, samesite='None', secure=True)
-            response.set_cookie(session.session_key, session.session_data, max_age=86400, domain=referrer_domain, samesite='None', secure=True)
+            response.set_cookie('sessionid', session_key, max_age=86400, domain=referrer_domain, samesite='None', secure=False)
+            response.set_cookie(session.session_key, session.session_data, max_age=86400, domain=referrer_domain, samesite='None', secure=False)
             return response
         else:
             error_serializer = ErrorDetailSerializer(data={'detail': 'No active account found with the given credentials'})
