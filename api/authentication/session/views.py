@@ -10,6 +10,7 @@ from .serializers import LoginSerializer, ReadCredentialSerializer, ErrorDetailS
 
 # Library: drf-yasg
 from drf_yasg.utils import swagger_auto_schema
+from drf_yasg import openapi
 
 # Services
 from domain.authentication.services.session import get_session_by_key_and_value
@@ -29,12 +30,30 @@ class AuthenticationSessionAPIView(APIView):
         responses={
             200: ReadCredentialSerializer,
             401: ErrorDetailSerializer
-        }
+        },
+        manual_parameters=[
+            openapi.Parameter(
+                'session_id', 
+                openapi.IN_QUERY, 
+                description="Session ID", 
+                type=openapi.TYPE_STRING, 
+                required=False
+            ),
+            openapi.Parameter(
+                'session_value', 
+                openapi.IN_QUERY, 
+                description="Session Value", 
+                type=openapi.TYPE_STRING, 
+                required=False
+            )
+        ]
     )
+
     def get(request):
-        
-        session_key = request.session.session_key
-        session_key_value = request.COOKIES.get(session_key)
+ 
+        # Get Session ID and Value from Parameter or Cookie
+        session_key = request.GET.get('session_id', request.session.session_key)
+        session_key_value = request.GET.get('session_value', request.COOKIES.get(session_key))
 
         if session_key is None:
             error_serializer = ErrorDetailSerializer(data={'detail': 'No session key'})
@@ -43,7 +62,7 @@ class AuthenticationSessionAPIView(APIView):
 
         # Get Session
         session = get_session_by_key_and_value(
-            session_key=request.session.session_key,
+            session_key=session_key,
             session_value=session_key_value
         )
 

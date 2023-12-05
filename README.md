@@ -56,7 +56,6 @@ Create a new directory and start a new Django app:
 - 
 
 
-
 ```javascript
 fetch('https://api.tappy.com.ph/authentication/session/', {
   method: 'GET',
