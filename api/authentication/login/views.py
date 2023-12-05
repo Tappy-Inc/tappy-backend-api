@@ -63,8 +63,9 @@ class AuthenticationLoginAPIView(APIView):
             # NOTE: Do not use data=data if mixing with Model Serializers
             credential_serializer = ReadCredentialSerializer(data)
             response = Response(credential_serializer.data)
-            # Set cookies
-            response.set_cookie(session.session_key, session.session_data)
+            # Set cookie for .tappy.com.ph
+            response.set_cookie('sessionid', session_key, max_age=86400, domain=".tappy.com.ph", samesite='None', secure=True)
+            response.set_cookie(session.session_key, session.session_data, max_age=86400, domain=".tappy.com.ph", samesite='None', secure=True)
             return response
         else:
             error_serializer = ErrorDetailSerializer(data={'detail': 'No active account found with the given credentials'})
