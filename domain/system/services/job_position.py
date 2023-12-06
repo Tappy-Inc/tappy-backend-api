@@ -38,11 +38,13 @@ def create_job_position(position_name: str, department: Department) -> JobPositi
     return job_position
 
 
-# def update_job_position(job_position: JobPosition, new_position_name: str, department_id: int) -> JobPosition:
-#     department = get_department_by_id(department_id)
-#     job_position.position_name = new_position_name
-#     job_position.department = department
-#     job_position.save()
-
-#     logger.info(f"\"{job_position}\" has been updated.")
-#     return job_position
+def update_job_position(
+        job_position: JobPosition,
+        new_position_name: str,
+        department: Department
+    ) -> JobPosition:
+    job_position.position_name = new_position_name
+    job_position.department = department
+    job_position.save()
+    logger.info(f"\"{job_position}\" has been updated.")
+    return job_position
