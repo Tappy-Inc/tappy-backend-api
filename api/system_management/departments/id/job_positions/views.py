@@ -23,7 +23,7 @@ class DepartmentsIdJobPositionsAPIView(APIView):
         responses={
             200: PaginateReadJobPositionSerializer()
         },
-        operation_id="job_positions_list",
+        operation_id="job_positions_list.",
         tags=["system-management.departments.id.job-positions"],
         query_serializer=PaginateQueryReadJobPositionSerializer()
     )
@@ -39,7 +39,7 @@ class DepartmentsIdJobPositionsAPIView(APIView):
     @swagger_auto_schema(
         request_body=CreateJobPositionSerializer,
         operation_description="description",
-        operation_id="job_positions_create",
+        operation_id="job_positions_create.",
         tags=["system-management.departments.id.job-positions"],
         responses={
             200: ReadJobPositionSerializer()
