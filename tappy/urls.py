@@ -37,7 +37,7 @@ schema_view = get_schema_view(
    ),
    public=True,
    permission_classes=[permissions.AllowAny],
-   url='https://api.tappy.com.ph/backend/',
+    url=os.environ.get('DJANGO_API_URL'),
 )
 
 
