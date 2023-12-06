@@ -32,7 +32,7 @@ class JobPositionsIdAPIView(APIView):
         },
         operation_description="description",
         operation_id="job_positions_read",
-        tags=["system-management.job_positions.id"],
+        tags=["system-management.job-positions.id"],
     )
     def get(request, job_position_id=None):
         logger.info(f"authenticated: {request.user}")
@@ -46,7 +46,7 @@ class JobPositionsIdAPIView(APIView):
     @swagger_auto_schema(
         operation_description="description",
         operation_id="job_positions_delete",
-        tags=["system-management.job_positions.id"],
+        tags=["system-management.job-positions.id"],
         responses={
             200: DeleteJobPositionSerializer()
         }
@@ -74,7 +74,7 @@ class JobPositionsIdAPIView(APIView):
     @swagger_auto_schema(
         operation_description="description",
         operation_id="job_positions_update",
-        tags=["system-management.job_positions.id"],
+        tags=["system-management.job-positions.id"],
         request_body=UpdateJobPositionSerializer,
         responses={
             200: ReadJobPositionSerializer()
@@ -109,7 +109,7 @@ class JobPositionsIdAPIView(APIView):
     @swagger_auto_schema(
         operation_description="description",
         operation_id="job_positions_patch",
-        tags=["system-management.job_positions.id"],
+        tags=["system-management.job-positions.id"],
         request_body=UpdateJobPositionSerializer,
         responses={
             200: ReadJobPositionSerializer()

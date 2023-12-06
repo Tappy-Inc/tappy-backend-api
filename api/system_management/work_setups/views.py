@@ -15,7 +15,7 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-class WorkSetupAPIView(APIView):
+class WorkSetupsAPIView(APIView):
 
     permission_classes = (IsAuthenticated,)
 
@@ -25,7 +25,7 @@ class WorkSetupAPIView(APIView):
             200: PaginateReadWorkSetupSerializer()
         },
         operation_id="work_setup_list",
-        tags=["system-management.work-setup"],
+        tags=["system-management.work-setups"],
         query_serializer=PaginateQueryReadWorkSetupSerializer()
     )
     def get(request):
@@ -41,7 +41,7 @@ class WorkSetupAPIView(APIView):
         request_body=CreateWorkSetupSerializer,
         operation_description="description",
         operation_id="work_setup_create",
-        tags=["system-management.work-setup"],
+        tags=["system-management.work-setups"],
         responses={
             200: ReadWorkSetupSerializer()
         }

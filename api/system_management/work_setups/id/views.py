@@ -21,7 +21,7 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-class WorkSetupIdAPIView(APIView):
+class WorkSetupsIdAPIView(APIView):
 
     permission_classes = (IsAuthenticated,)
 
@@ -32,7 +32,7 @@ class WorkSetupIdAPIView(APIView):
         },
         operation_description="description",
         operation_id="work_setup_read",
-        tags=["system-management.work_setup.id"],
+        tags=["system-management.work-setups.id"],
     )
     def get(request, work_setup_id=None):
         logger.info(f"authenticated: {request.user}")
@@ -46,7 +46,7 @@ class WorkSetupIdAPIView(APIView):
     @swagger_auto_schema(
         operation_description="description",
         operation_id="work_setup_delete",
-        tags=["system-management.work_setup.id"],
+        tags=["system-management.work-setups.id"],
         responses={
             200: DeleteWorkSetupSerializer()
         }
@@ -74,7 +74,7 @@ class WorkSetupIdAPIView(APIView):
     @swagger_auto_schema(
         operation_description="description",
         operation_id="work_setup_update",
-        tags=["system-management.work_setup.id"],
+        tags=["system-management.work-setups.id"],
         request_body=UpdateWorkSetupSerializer,
         responses={
             200: ReadWorkSetupSerializer()
@@ -108,7 +108,7 @@ class WorkSetupIdAPIView(APIView):
     @swagger_auto_schema(
         operation_description="description",
         operation_id="work_setup_patch",
-        tags=["system-management.work_setup.id"],
+        tags=["system-management.work-setups.id"],
         request_body=UpdateWorkSetupSerializer,
         responses={
             200: ReadWorkSetupSerializer()
