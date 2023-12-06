@@ -8,6 +8,9 @@ from .work_setups.id.views import WorkSetupsIdAPIView
 from .genders.id.views import GendersIdAPIView
 from .job_positions.views import JobPositionsAPIView
 from .job_positions.id.views import JobPositionsIdAPIView
+from .employment_types.views import EmploymentTypesAPIView
+from .employment_types.id.views import EmploymentTypesIdAPIView
+
 
 urlpatterns = [
     path('genders', GendersAPIView.as_view()),
@@ -19,4 +22,6 @@ urlpatterns = [
     path('work-setup/<int:work_setup_id>', WorkSetupsIdAPIView.as_view()),
     path('job-positions', JobPositionsAPIView.as_view()),
     path('job-positions/<int:job_position_id>', JobPositionsIdAPIView.as_view()),
+    path('employment-types', EmploymentTypesAPIView.as_view()),
+    path('employment-types/<int:employment_type_id>', EmploymentTypesIdAPIView.as_view()),
 ]
