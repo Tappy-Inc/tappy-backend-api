@@ -4,9 +4,10 @@ from domain.system.models.JobLevel import JobLevel
 from domain.system.models.WorkSetup import WorkSetup
 from domain.system.models.Department import Department
 from domain.system.models.JobPosition import JobPosition
+from domain.system.models.Gender import Gender
 
 class Command(BaseCommand):
-    help = 'Create default employment types, job levels, work setups, departments and job positions'
+    help = 'Create default employment types, job levels, work setups, departments, job positions and genders'
 
     def handle(self, *args, **options):
         employment_types = [
@@ -15,7 +16,16 @@ class Command(BaseCommand):
             'Consultancy',
             'Project Based',
             'Internship',
-            'Part Time'
+            'Part Time',
+            'Temporary',
+            'Contractual',
+            'Freelance',
+            'Volunteer',
+            'Trainee',
+            'Apprentice',
+            'Seasonal',
+            'Commission',
+            'Casual'
         ]
 
         for employment_type in employment_types:
@@ -50,7 +60,18 @@ class Command(BaseCommand):
             'Onsite',
             'Hybrid (3D onsite/2D WFH)',
             'Hybrid (2D onsite/3D WFH)',
-            'Work From Home'
+            'Work From Home',
+            'Remote',
+            'Flexible',
+            'Field Work',
+            'Travel Required',
+            'Rotational Shift',
+            'Fixed Shift',
+            'Split Shift',
+            'Night Shift',
+            'Weekend Shift',
+            'Holiday Shift',
+            'Overtime Required'
         ]
 
         for work_setup in work_setups:
@@ -59,18 +80,87 @@ class Command(BaseCommand):
 
         departments = [
             'IT Department',
+            'Sales Department',
+            'Marketing Department',
+            'Human Resources Department',
+            'Finance Department',
+            'Operations Department',
+            'Product Department',
+            'Customer Service Department',
+            'Research and Development Department',
+            'Legal Department',
+            'Supply Chain Department',
+            'Quality Assurance Department',
+            'Purchasing Department',
+            'Administrative Department',
+            'Engineering Department',
+            'Production Department',
+            'Business Development Department'
         ]
 
         for department in departments:
             Department.objects.get_or_create(department_name=department)
             self.stdout.write(self.style.SUCCESS('Successfully created department "%s"' % department))
 
-        job_positions = [
+        it_job_positions = [
             'Software Engineer',
             'System Analyst',
             'IT Support',
+            'Network Administrator',
+            'Database Administrator',
+            'IT Project Manager',
+            'IT Consultant',
+            'IT Technician',
+            'IT Director',
+            'IT Manager',
+            'IT Coordinator',
+            'IT Specialist',
+            'IT Analyst',
+            'IT Operations Manager',
+            'IT Security Specialist',
+            'IT Service Manager',
+            'IT Strategy Manager',
+            'IT Systems Manager',
+            'IT Test Manager',
+            'IT Trainer',
         ]
 
-        for job_position in job_positions:
+        sales_job_positions = [
+            'Sales Representative',
+            'Sales Manager',
+            'Sales Analyst',
+            'Sales Director',
+            'Sales Associate',
+            'Sales Consultant',
+            'Sales Coordinator',
+            'Sales Executive',
+            'Sales Support Specialist',
+            'Sales Operations Manager',
+            'Sales Engineer',
+            'Sales Account Manager',
+            'Sales and Marketing Manager',
+            'Sales Development Representative',
+            'Sales Team Leader',
+            'Sales Vice President',
+            'Sales Specialist',
+            'Sales Trainer',
+            'Sales Territory Manager',
+            'Sales and Service Representative',
+        ]
+
+        for job_position in it_job_positions:
             JobPosition.objects.get_or_create(position_name=job_position, department=Department.objects.get(department_name='IT Department'))
             self.stdout.write(self.style.SUCCESS('Successfully created job position "%s"' % job_position))
+
+        for job_position in sales_job_positions:
+            JobPosition.objects.get_or_create(position_name=job_position, department=Department.objects.get(department_name='Sales Department'))
+            self.stdout.write(self.style.SUCCESS('Successfully created job position "%s"' % job_position))
+
+        genders = [
+            'Male',
+            'Female',
+        ]
+
+        for gender in genders:
+            Gender.objects.get_or_create(gender=gender)
+            self.stdout.write(self.style.SUCCESS('Successfully created gender "%s"' % gender))
