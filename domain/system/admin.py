@@ -6,34 +6,37 @@ from domain.system.models.WorkSetup import WorkSetup
 from domain.system.models.EmploymentType import EmploymentType
 from domain.system.models.JobPosition import JobPosition
 
+# Library: django-unfold
+from unfold.admin import ModelAdmin
+
 # Register your models here.
 
 @admin.register(Gender)
-class GenderAdmin(admin.ModelAdmin):
+class GenderAdmin(ModelAdmin):
     list_display = ('id', 'gender')
     search_fields = ('gender',)
 
 @admin.register(Department)
-class DepartmentAdmin(admin.ModelAdmin):
+class DepartmentAdmin(ModelAdmin):
     list_display = ('id', 'department_name')
     search_fields = ('department_name',)
 
 @admin.register(JobLevel)
-class JobLevelAdmin(admin.ModelAdmin):
+class JobLevelAdmin(ModelAdmin):
     list_display = ('id', 'level')
     search_fields = ('level',)
 
 @admin.register(WorkSetup)
-class WorkSetupAdmin(admin.ModelAdmin):
+class WorkSetupAdmin(ModelAdmin):
     list_display = ('id', 'work_setup')
     search_fields = ('work_setup',)
 
 @admin.register(EmploymentType)
-class EmploymentTypeAdmin(admin.ModelAdmin):
+class EmploymentTypeAdmin(ModelAdmin):
     list_display = ('id', 'employment_type')
     search_fields = ('employment_type',)
 
 @admin.register(JobPosition)
-class JobPositionAdmin(admin.ModelAdmin):
+class JobPositionAdmin(ModelAdmin):
     list_display = ('id', 'position_name', 'department')
     search_fields = ('position_name',)

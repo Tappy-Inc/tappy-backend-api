@@ -57,7 +57,6 @@ if '--no-logs' in sys.argv:
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -71,6 +70,10 @@ INSTALLED_APPS = [
     'corsheaders',
     # Library: django-simple-history
     'simple_history',
+    # Library: django-unfold
+    # Notes: It is necessary to have new option before django.contrib.admin to be sure it will be properly loaded, otherwise it is possible to get unexpected errors.
+    "unfold",
+    'django.contrib.admin',
     # Domain
     'domain.common',
     'domain.authentication',
@@ -164,7 +167,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = f"{os.environ['S3_BUCKET_URL']}/static/"
+STATIC_URL = 'static/'
 STATIC_ROOT = 'static'
 
 # Default primary key field type
