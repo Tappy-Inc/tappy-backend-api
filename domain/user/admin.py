@@ -8,33 +8,58 @@ from domain.user.models.Profile import Profile
 from domain.user.models.WorkInformation import WorkInformation
 from domain.user.models.WorkSchedule import WorkSchedule
 
+# Library: django-unfold
+from django.contrib.auth.models import User
+from django.contrib.auth.models import Group
+from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
+from django.contrib.auth.admin import GroupAdmin as BaseGroupAdmin
+
+from unfold.admin import ModelAdmin
+from unfold.forms import AdminPasswordChangeForm, UserChangeForm, UserCreationForm
+
+# Library: django-unfold
+admin.site.unregister(User)
+admin.site.unregister(Group)
+
+# Library: django-unfold
+@admin.register(User)
+class UserAdmin(BaseUserAdmin, ModelAdmin):
+    form = UserChangeForm
+    add_form = UserCreationForm
+    change_password_form = AdminPasswordChangeForm
+
+# Library: django-unfold
+@admin.register(Group)
+class GroupAdmin(BaseGroupAdmin, ModelAdmin):
+    pass
+
 
 @admin.register(Document)
-class DocumentAdmin(admin.ModelAdmin):
+class DocumentAdmin(ModelAdmin):
     list_display = ('id', 'user', 'file_name', 'file_type', 'file_source')
     search_fields = ('file_name',)
 
 @admin.register(EducationalBackground)
-class EducationalBackgroundAdmin(admin.ModelAdmin):
+class EducationalBackgroundAdmin(ModelAdmin):
     list_display = ('id', 'user', 'education_type', 'school', 'from_year', 'to_year', 'degree')
     search_fields = ('user', 'school',)
 
 @admin.register(GovernmentInformation)
-class GovernmentInformationAdmin(admin.ModelAdmin):
+class GovernmentInformationAdmin(ModelAdmin):
     list_display = ('id', 'user', 'sss_no', 'tin', 'philhealth', 'hdmf', 'prc_license_no', 'passport_no', 'tax_status', 'rdo_number')
     search_fields = ('user',)
 
 @admin.register(Profile)
-class ProfileAdmin(admin.ModelAdmin):
+class ProfileAdmin(ModelAdmin):
     list_display = ('id', 'user', 'bio', 'location', 'middle_name', 'gender', 'civil_status', 'employee_id', 'birth_date', 'manager')
     search_fields = ('user',)
 
 @admin.register(WorkInformation)
-class WorkInformationAdmin(admin.ModelAdmin):
+class WorkInformationAdmin(ModelAdmin):
     list_display = ('id', 'user', 'department', 'job_level')
     search_fields = ('user',)
 
 @admin.register(WorkSchedule)
-class WorkScheduleAdmin(admin.ModelAdmin):
+class WorkScheduleAdmin(ModelAdmin):
     list_display = ('id', 'user', 'day_of_week', 'shift_start', 'shift_end', 'is_rest_day')
     search_fields = ('user',)

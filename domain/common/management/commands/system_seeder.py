@@ -1,4 +1,10 @@
 from django.core.management.base import BaseCommand
+
+# User Domain
+from django.contrib.auth.models import User
+from domain.user.models.Profile import Profile
+
+# System Domain
 from domain.system.models.EmploymentType import EmploymentType
 from domain.system.models.JobLevel import JobLevel
 from domain.system.models.WorkSetup import WorkSetup
@@ -6,10 +12,12 @@ from domain.system.models.Department import Department
 from domain.system.models.JobPosition import JobPosition
 from domain.system.models.Gender import Gender
 
+
 class Command(BaseCommand):
     help = 'Create default employment types, job levels, work setups, departments, job positions and genders'
 
     def handle(self, *args, **options):
+
         employment_types = [
             'Probationary',
             'Regular',
@@ -164,3 +172,4 @@ class Command(BaseCommand):
         for gender in genders:
             Gender.objects.get_or_create(gender=gender)
             self.stdout.write(self.style.SUCCESS('Successfully created gender "%s"' % gender))
+

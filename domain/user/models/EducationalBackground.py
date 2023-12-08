@@ -26,4 +26,4 @@ class EducationalBackground(BaseModel):
     history = HistoricalRecords()
 
     def __str__(self):
-        return self.user
+        return self.user.username

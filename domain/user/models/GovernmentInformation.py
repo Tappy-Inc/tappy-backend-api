@@ -22,4 +22,4 @@ class GovernmentInformation(BaseModel):
     history = HistoricalRecords()
 
     def __str__(self):
-        return self.user
+        return self.user.username
