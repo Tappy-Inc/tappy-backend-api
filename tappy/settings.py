@@ -81,6 +81,7 @@ INSTALLED_APPS = [
     'domain.user',
     # API
     'api.system_management',
+    'api.user_management',
 ]
 
 MIDDLEWARE = [
