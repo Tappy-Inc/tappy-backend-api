@@ -64,7 +64,7 @@ class Command(BaseCommand):
                 middle_name=fake.first_name(), 
                 gender=fake.random_element(elements=genders), 
                 civil_status=fake.random_element(elements=civil_statuses), 
-                employee_id=fake.random_int(min=1000, max=9999), 
+                employee_id=fake.random_int(min=100000, max=999999), 
                 birth_date=fake.date_of_birth(),
                 manager=None
             )
