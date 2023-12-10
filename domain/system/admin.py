@@ -40,3 +40,4 @@ class EmploymentTypeAdmin(ModelAdmin):
 class JobPositionAdmin(ModelAdmin):
     list_display = ('id', 'position_name', 'department')
     search_fields = ('position_name',)
+    list_filter = ('department',)

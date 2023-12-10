@@ -51,8 +51,25 @@ class GovernmentInformationAdmin(ModelAdmin):
 
 @admin.register(Profile)
 class ProfileAdmin(ModelAdmin):
-    list_display = ('id', 'user', 'bio', 'location', 'middle_name', 'gender', 'civil_status', 'employee_id', 'birth_date', 'manager')
+    list_display = ('id', 'user', 'get_user_first_name', 'get_user_last_name', 'get_user_email', 'get_bio', 'location', 'middle_name', 'gender', 'civil_status', 'employee_id', 'birth_date', 'manager')
     search_fields = ('user',)
+    list_filter = ('gender', 'civil_status',)
+
+    def get_user_first_name(self, obj):
+        return obj.user.first_name
+    get_user_first_name.short_description = 'First Name'  # Sets column header
+
+    def get_user_last_name(self, obj):
+        return obj.user.last_name
+    get_user_last_name.short_description = 'Last Name'  # Sets column header
+
+    def get_user_email(self, obj):
+        return obj.user.email
+    get_user_email.short_description = 'Email'  # Sets column header
+
+    def get_bio(self, obj):
+        return obj.bio[:20] if obj.bio else obj.bio
+    get_bio.short_description = 'Bio'  # Sets column header
 
 @admin.register(WorkInformation)
 class WorkInformationAdmin(ModelAdmin):
