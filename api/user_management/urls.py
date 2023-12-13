@@ -5,7 +5,7 @@ from .users.id.profile.views import UserIdProfileAPIView
 from .profiles.views import ProfilesAPIView
 from .profiles.id.views import ProfileIdAPIView
 from .government_informations.views import GovernmentInformationsAPIView
-
+from .government_informations.id.views import GovernmentInformationIdAPIView
 
 urlpatterns = [
     path('users', UsersAPIView.as_view()),
@@ -14,4 +14,5 @@ urlpatterns = [
     path('profiles', ProfilesAPIView.as_view()),
     path('profiles/<int:profile_id>', ProfileIdAPIView.as_view()),
     path('government_informations', GovernmentInformationsAPIView.as_view()),
+    path('government_informations/<int:government_information_id>', GovernmentInformationIdAPIView.as_view()),
 ]
