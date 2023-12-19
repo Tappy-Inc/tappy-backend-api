@@ -6,6 +6,8 @@ from django.contrib.auth.models import User
 
 from domain.system.models import Department
 from domain.system.models import JobLevel
+from domain.system.models import EmploymentType
+from domain.system.models import WorkSetup
 
 import logging
 logger = logging.getLogger(__name__)
@@ -32,10 +34,26 @@ class JobLevelSerializer(serializers.ModelSerializer):
         fields = ['id', 'level']
 
 
+class EmploymentTypeSerializer(serializers.ModelSerializer):
+    class Meta:
+        ref_name = "user-management.work_informations.EmploymentTypeSerializer"
+        model = EmploymentType
+        fields = ['id', 'employment_type']
+
+
+class WorkSetupSerializer(serializers.ModelSerializer):
+    class Meta:
+        ref_name = "user-management.work_informations.WorkSetupSerializer"
+        model = WorkSetup
+        fields = ['id', 'work_setup']
+
+
 class ReadWorkInformationSerializer(serializers.ModelSerializer):
     user = UserSerializer(read_only=True)
     department = DepartmentSerializer(read_only=True)
     job_level = JobLevelSerializer(read_only=True)
+    employment_type = EmploymentTypeSerializer(read_only=True)
+    work_setup = WorkSetupSerializer(read_only=True)
 
     class Meta:
         ref_name = "user-management.work_informations.ReadWorkInformationSerializer"
@@ -44,13 +62,13 @@ class ReadWorkInformationSerializer(serializers.ModelSerializer):
             'id',
             'user',
             'department',
-            'job_level'
+            'job_level',
+            'employment_type',
+            'work_setup'
         ]
 
 
 class CreateWorkInformationSerializer(serializers.ModelSerializer):
-    user = serializers.PrimaryKeyRelatedField(queryset=User.objects.all())
-    job_level = serializers.PrimaryKeyRelatedField(queryset=JobLevel.objects.all())
 
     class Meta:
         ref_name = "user-management.work_informations.CreateWorkInformationSerializer"
@@ -58,7 +76,9 @@ class CreateWorkInformationSerializer(serializers.ModelSerializer):
         fields = [
             'user',
             'department',
-            'job_level'
+            'job_level',
+            'employment_type',
+            'work_setup'
         ]
 
 
