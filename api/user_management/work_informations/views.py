@@ -25,7 +25,7 @@ class WorkInformationsAPIView(APIView):
             200: PaginateReadWorkInformationSerializer()
         },
         operation_id="work_informations_list",
-        tags=["user-management.work_informations"],
+        tags=["user-management.work-informations"],
         query_serializer=PaginateQueryReadWorkInformationSerializer()
     )
     def get(request):
@@ -41,7 +41,7 @@ class WorkInformationsAPIView(APIView):
         request_body=CreateWorkInformationSerializer,
         operation_description="description",
         operation_id="work_informations_create",
-        tags=["user-management.work_informations"],
+        tags=["user-management.work-informations"],
         responses={
             200: ReadWorkInformationSerializer()
         }

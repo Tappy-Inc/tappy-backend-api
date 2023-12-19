@@ -25,7 +25,7 @@ class GovernmentInformationsAPIView(APIView):
             200: PaginateReadGovernmentInformationSerializer()
         },
         operation_id="government_informations_list",
-        tags=["user-management.government_informations"],
+        tags=["user-management.government-informations"],
         query_serializer=PaginateQueryReadGovernmentInformationSerializer()
     )
     def get(request):
@@ -41,7 +41,7 @@ class GovernmentInformationsAPIView(APIView):
         request_body=CreateGovernmentInformationSerializer,
         operation_description="description",
         operation_id="government_informations_create",
-        tags=["user-management.government_informations"],
+        tags=["user-management.government-informations"],
         responses={
             200: ReadGovernmentInformationSerializer()
         }

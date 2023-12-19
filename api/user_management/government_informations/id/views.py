@@ -25,7 +25,7 @@ class GovernmentInformationIdAPIView(APIView):
         },
         operation_description="description",
         operation_id="government_informations_read",
-        tags=["user-management.government_informations.id"],
+        tags=["user-management.government-informations.id"],
     )
     def get(request, government_information_id=None):
         logger.info(f"authenticated: {request.user}")
@@ -39,7 +39,7 @@ class GovernmentInformationIdAPIView(APIView):
     @swagger_auto_schema(
         operation_description="description",
         operation_id="government_informations_delete",
-        tags=["user-management.government_informations.id"],
+        tags=["user-management.government-informations.id"],
         responses={
             200: DeleteGovernmentInformationSerializer()
         }
@@ -66,7 +66,7 @@ class GovernmentInformationIdAPIView(APIView):
     @swagger_auto_schema(
         operation_description="description",
         operation_id="government_informations_update",
-        tags=["user-management.government_informations.id"],
+        tags=["user-management.government-informations.id"],
         request_body=UpdateGovernmentInformationSerializer,
         responses={
             200: ReadGovernmentInformationSerializer()
@@ -104,7 +104,7 @@ class GovernmentInformationIdAPIView(APIView):
     @swagger_auto_schema(
         operation_description="description",
         operation_id="government_informations_patch",
-        tags=["user-management.government_informations.id"],
+        tags=["user-management.government-informations.id"],
         request_body=UpdateGovernmentInformationSerializer,
         responses={
             200: ReadGovernmentInformationSerializer()

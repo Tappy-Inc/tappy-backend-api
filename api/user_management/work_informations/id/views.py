@@ -25,7 +25,7 @@ class WorkInformationIdAPIView(APIView):
         },
         operation_description="description",
         operation_id="work_informations_read",
-        tags=["user-management.work_informations.id"],
+        tags=["user-management.work-informations.id"],
     )
     def get(request, work_information_id=None):
         logger.info(f"authenticated: {request.user}")
@@ -39,7 +39,7 @@ class WorkInformationIdAPIView(APIView):
     @swagger_auto_schema(
         operation_description="description",
         operation_id="work_informations_delete",
-        tags=["user-management.work_informations.id"],
+        tags=["user-management.work-informations.id"],
         responses={
             200: DeleteWorkInformationSerializer()
         }
@@ -66,7 +66,7 @@ class WorkInformationIdAPIView(APIView):
     @swagger_auto_schema(
         operation_description="description",
         operation_id="work_informations_update",
-        tags=["user-management.work_informations.id"],
+        tags=["user-management.work-informations.id"],
         request_body=UpdateWorkInformationSerializer,
         responses={
             200: ReadWorkInformationSerializer()
@@ -100,7 +100,7 @@ class WorkInformationIdAPIView(APIView):
     @swagger_auto_schema(
         operation_description="description",
         operation_id="work_informations_patch",
-        tags=["user-management.work_informations.id"],
+        tags=["user-management.work-informations.id"],
         request_body=UpdateWorkInformationSerializer,
         responses={
             200: ReadWorkInformationSerializer()
