@@ -13,18 +13,21 @@ logger = logging.getLogger(__name__)
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
+        ref_name = "user-management.work_informations.UserSerializer"
         model = User
         fields = ['id', 'username', 'email', 'first_name', 'last_name']
 
 
 class DepartmentSerializer(serializers.ModelSerializer):
     class Meta:
+        ref_name = "user-management.work_informations.DepartmentSerializer"
         model = Department
         fields = ['id', 'department_name']
 
 
 class JobLevelSerializer(serializers.ModelSerializer):
     class Meta:
+        ref_name = "user-management.work_informations.JobLevelSerializer"
         model = JobLevel
         fields = ['id', 'level']
 
