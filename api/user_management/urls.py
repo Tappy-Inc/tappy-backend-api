@@ -15,8 +15,8 @@ urlpatterns = [
     path('users/<int:user_id>/profile', UserIdProfileAPIView.as_view()),
     path('profiles', ProfilesAPIView.as_view()),
     path('profiles/<int:profile_id>', ProfileIdAPIView.as_view()),
-    path('government_informations', GovernmentInformationsAPIView.as_view()),
-    path('government_informations/<int:government_information_id>', GovernmentInformationIdAPIView.as_view()),
-    path('work_informations', WorkInformationsAPIView.as_view()),
-    path('work_informations/<int:work_information_id>', WorkInformationIdAPIView.as_view()),
+    path('government-informations', GovernmentInformationsAPIView.as_view()),
+    path('government-informations/<int:government_information_id>', GovernmentInformationIdAPIView.as_view()),
+    path('work-informations', WorkInformationsAPIView.as_view()),
+    path('work-informations/<int:work_information_id>', WorkInformationIdAPIView.as_view()),
 ]
