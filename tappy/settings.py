@@ -136,7 +136,7 @@ DATABASES = {
         'OPTIONS': {
             'sslmode': 'require',
             'options': f"endpoint={os.environ.get('DJANGO_DB_ENDPOINT')}",
-        }
+        } if os.environ.get('DJANGO_ENV') != 'local' else {}
     }
 }
 
