@@ -5,6 +5,7 @@ from domain.system.models.JobLevel import JobLevel
 from domain.system.models.WorkSetup import WorkSetup
 from domain.system.models.EmploymentType import EmploymentType
 from domain.system.models.JobPosition import JobPosition
+from domain.system.models.CompanyInformation import CompanyInformation
 
 # Library: django-unfold
 from unfold.admin import ModelAdmin
@@ -41,3 +42,8 @@ class JobPositionAdmin(ModelAdmin):
     list_display = ('id', 'position_name', 'department')
     search_fields = ('position_name',)
     list_filter = ('department',)
+
+@admin.register(CompanyInformation)
+class CompanyInformationAdmin(ModelAdmin):
+    list_display = ('id', 'company_name', 'address', 'number', 'company_size', 'industry')
+    search_fields = ('company_name',)
