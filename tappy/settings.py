@@ -79,7 +79,6 @@ INSTALLED_APPS = [
     'storages',
     # Domain
     'domain.common',
-    'domain.authentication',
     'domain.system',
     'domain.user',
     # API
@@ -252,10 +251,9 @@ SWAGGER_SETTINGS = {
 }
 
 # Library: django-cors-headers
-CORS_ALLOW_CREDENTIALS = True
-CORS_ALLOW_HEADERS = ['content-type']
-CORS_ALLOW_ALL_ORIGINS = False
 CORS_ALLOWED_ORIGINS = env.list("CORS_ALLOWED_ORIGINS")
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_HEADERS = ['*']
 
 # Library: django-storages
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
