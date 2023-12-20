@@ -9,6 +9,7 @@ from .government_informations.id.views import GovernmentInformationIdAPIView
 from .work_informations.views import WorkInformationsAPIView
 from .work_informations.id.views import WorkInformationIdAPIView
 from .educational_backgrounds.views import EducationalBackgroundsAPIView
+from .educational_backgrounds.id.views import EducationalBackgroundIdAPIView
 
 urlpatterns = [
     path('users', UsersAPIView.as_view()),
@@ -21,4 +22,5 @@ urlpatterns = [
     path('work-informations', WorkInformationsAPIView.as_view()),
     path('work-informations/<int:work_information_id>', WorkInformationIdAPIView.as_view()),
     path('educational-backgrounds', EducationalBackgroundsAPIView.as_view()),
+    path('educational-backgrounds/<int:educational_background_id>', EducationalBackgroundIdAPIView.as_view()),
 ]
