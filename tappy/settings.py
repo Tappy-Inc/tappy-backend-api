@@ -129,7 +129,11 @@ DATABASES = {
         'USER': os.environ.get('DJANGO_DB_USER'),
         'PASSWORD': os.environ.get('DJANGO_DB_PASS'),
         'HOST': os.environ.get('DJANGO_DB_HOST'),
-        'PORT': os.environ.get('DJANGO_DB_PORT')
+        'PORT': os.environ.get('DJANGO_DB_PORT'),
+        'OPTIONS': {
+            'sslmode': 'require',
+            'options': f"endpoint={os.environ.get('DJANGO_DB_ENDPOINT')}",
+        }
     }
 }
 
