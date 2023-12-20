@@ -71,9 +71,12 @@ INSTALLED_APPS = [
     # Library: django-simple-history
     'simple_history',
     # Library: django-unfold
-    # Notes: It is necessary to have new option before django.contrib.admin to be sure it will be properly loaded, otherwise it is possible to get unexpected errors.
+    # Notes: It is necessary to have new option before django.contrib.admin to be sure it will be properly loaded, 
+    # otherwise it is possible to get unexpected errors.
     "unfold",
     'django.contrib.admin',
+    # Library: django-storages
+    'storages',
     # Domain
     'domain.common',
     'domain.authentication',
@@ -130,6 +133,7 @@ DATABASES = {
         'PASSWORD': os.environ.get('DJANGO_DB_PASS'),
         'HOST': os.environ.get('DJANGO_DB_HOST'),
         'PORT': os.environ.get('DJANGO_DB_PORT'),
+        # NOTE: Comment this if not using Vercel Database
         'OPTIONS': {
             'sslmode': 'require',
             'options': f"endpoint={os.environ.get('DJANGO_DB_ENDPOINT')}",
@@ -252,3 +256,14 @@ CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOW_HEADERS = ['content-type']
 CORS_ALLOW_ALL_ORIGINS = False
 CORS_ALLOWED_ORIGINS = env.list("CORS_ALLOWED_ORIGINS")
+
+# Library: django-storages
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+AWS_ACCESS_KEY_ID = env('DO_SPACES_ACCESS_KEY')
+AWS_SECRET_ACCESS_KEY = env('DO_SPACES_SECRET_KEY')
+AWS_STORAGE_BUCKET_NAME = env('DO_BUCKET_NAME')
+AWS_S3_ENDPOINT_URL = env('DO_SPACES_URL')
+AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400',}
+AWS_LOCATION = env('DO_LOCATION')
+

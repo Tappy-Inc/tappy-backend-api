@@ -13,6 +13,7 @@ class Document(BaseModel):
     file_name = models.CharField(max_length=255, null=False, blank=False)
     file_type = models.CharField(max_length=255, null=False, blank=False)
     file_source = models.CharField(max_length=255, null=False, blank=False)
+    file_upload = models.FileField(upload_to='documents/', null=True, blank=True)
     history = HistoricalRecords()
 
     def __str__(self):
