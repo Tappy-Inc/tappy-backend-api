@@ -10,7 +10,9 @@ from .serializers import ReadUserSerializer, \
     PaginateQueryReadUserSerializer
 
 # Services
+from domain.common.services.resend import send_email
 from domain.user.services.user import get_users, create_user
+
 
 # Library: drf-yasg
 from drf_yasg.utils import swagger_auto_schema
@@ -56,4 +58,22 @@ class UsersAPIView(APIView):
         user_serializer.is_valid(raise_exception=True)
         user = create_user(user_serializer.validated_data['username'], user_serializer.validated_data['password'], user_serializer.validated_data['first_name'], user_serializer.validated_data['last_name'], user_serializer.validated_data['email'])
         user_serializer = ReadUserSerializer(user)
+
+        send_email(
+            to=[user.email],
+            subject="Welcome to Tappy Inc.!",
+            html="""
+            <html>
+            <body>
+            <h1>Welcome to Tappy Inc.!</h1>
+            <p>We are thrilled to have you on board. At Tappy Inc., we believe in creating a collaborative and innovative environment where every member can contribute their unique skills and perspectives.</p>
+            <p>We are confident that you will bring great value to our team and we look forward to the amazing things we will achieve together.</p>
+            <p>Once again, welcome to the team!</p>
+            <p>Best,</p>
+            <p>The Tappy Inc. Team</p>
+            </body>
+            </html>
+            """
+        )
+        
         return Response(user_serializer.data)
