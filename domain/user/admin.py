@@ -33,7 +33,6 @@ class UserAdmin(BaseUserAdmin, ModelAdmin):
 class GroupAdmin(BaseGroupAdmin, ModelAdmin):
     pass
 
-
 @admin.register(Document)
 class DocumentAdmin(ModelAdmin):
     list_display = ('id', 'user', 'file_name', 'file_type', 'file_source')
