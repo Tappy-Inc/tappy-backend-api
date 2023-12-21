@@ -16,6 +16,7 @@ class ReadDocumentSerializer(serializers.ModelSerializer):
             'user',
             'file_name',
             'file_type',
+            'file_size',
             'file_source',
             'file_upload'
         ]
