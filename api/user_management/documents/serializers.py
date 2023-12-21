@@ -28,9 +28,6 @@ class CreateDocumentSerializer(serializers.ModelSerializer):
         model = Document
         fields = [
             'user',
-            'file_name',
-            'file_type',
-            'file_source',
             'file_upload'
         ]
 

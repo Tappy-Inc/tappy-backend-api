@@ -25,6 +25,7 @@ def create_document(
         user: User, 
         file_name: str, 
         file_type: str, 
+        file_size: int,
         file_source: str, 
         file_upload
     ) -> Document:
@@ -32,6 +33,7 @@ def create_document(
         user=user, 
         file_name=file_name, 
         file_type=file_type, 
+        file_size=file_size,
         file_source=file_source, 
         file_upload=file_upload
     )
@@ -42,11 +44,13 @@ def update_document(
         document: Document,
         new_file_name: str, 
         new_file_type: str, 
+        new_file_size: int,
         new_file_source: str, 
         new_file_upload
     ) -> Document:
     document.file_name = new_file_name
     document.file_type = new_file_type
+    document.file_size = new_file_size
     document.file_source = new_file_source
     document.file_upload = new_file_upload
     document.updated_at = timezone.now()

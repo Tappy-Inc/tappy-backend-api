@@ -26,7 +26,7 @@ class DocumentsAPIView(APIView):
     parser_classes = (MultiPartParser,)
 
     @staticmethod
-    @swagger_auto_schema(
+    @swagger_auto_schema(   
         responses={
             200: PaginateReadDocumentSerializer()
         },
@@ -57,12 +57,15 @@ class DocumentsAPIView(APIView):
         document_serializer = CreateDocumentSerializer(data=request.data)
         document_serializer.is_valid(raise_exception=True)
 
+        file_upload = document_serializer.validated_data['file_upload']
+
         document = create_document(
             user=document_serializer.validated_data['user'], 
-            file_name=document_serializer.validated_data['file_name'], 
-            file_type=document_serializer.validated_data['file_type'], 
-            file_source=document_serializer.validated_data['file_source'], 
-            file_upload=document_serializer.validated_data['file_upload']
+            file_name=file_upload._name, 
+            file_type=file_upload.content_type,
+            file_size=file_upload.size,
+            file_source='upload', 
+            file_upload=file_upload
         )
         document_serializer = ReadDocumentSerializer(document)
         return Response(document_serializer.data)

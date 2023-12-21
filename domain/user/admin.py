@@ -35,7 +35,7 @@ class GroupAdmin(BaseGroupAdmin, ModelAdmin):
 
 @admin.register(Document)
 class DocumentAdmin(ModelAdmin):
-    list_display = ('id', 'user', 'file_name', 'file_type', 'file_source')
+    list_display = ('id', 'user', 'file_name', 'file_type', 'file_size', 'file_source', 'file_upload')
     search_fields = ('file_name',)
 
 @admin.register(EducationalBackground)

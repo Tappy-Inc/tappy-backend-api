@@ -114,13 +114,13 @@ class Command(BaseCommand):
                 )
                 work_schedule.save()
 
-            document = Document(
-                user=user,
-                file_name=fake.file_name(),
-                file_type=fake.file_extension(),
-                file_source=fake.file_path()
-            )
-            document.save()
+            # document = Document(
+            #     user=user,
+            #     file_name=fake.file_name(),
+            #     file_type=fake.file_extension(),
+            #     file_source=fake.file_path()
+            # )
+            # document.save()
 
             self.stdout.write(self.style.SUCCESS('Successfully created user "%s"' % username))
 
