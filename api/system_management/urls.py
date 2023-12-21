@@ -10,6 +10,8 @@ from .job_positions.views import JobPositionsAPIView
 from .job_positions.id.views import JobPositionsIdAPIView
 from .employment_types.views import EmploymentTypesAPIView
 from .employment_types.id.views import EmploymentTypesIdAPIView
+from .company_informations.views import CompanyInformationsAPIView
+from .company_informations.id.views import CompanyInformationsIdAPIView
 
 
 urlpatterns = [
@@ -24,4 +26,6 @@ urlpatterns = [
     path('job-positions/<int:job_position_id>', JobPositionsIdAPIView.as_view()),
     path('employment-types', EmploymentTypesAPIView.as_view()),
     path('employment-types/<int:employment_type_id>', EmploymentTypesIdAPIView.as_view()),
+    path('company-informations', CompanyInformationsAPIView.as_view()),
+    path('company-informations/<int:company_information_id>', CompanyInformationsIdAPIView.as_view()),
 ]
