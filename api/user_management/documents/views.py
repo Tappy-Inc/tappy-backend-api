@@ -3,6 +3,9 @@ from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.pagination import PageNumberPagination
 
+# NOTE: Enable file upload in Swagger Docs
+from rest_framework.parsers import MultiPartParser
+
 from .serializers import ReadDocumentSerializer, \
     CreateDocumentSerializer, PaginateReadDocumentSerializer, \
     PaginateQueryReadDocumentSerializer
@@ -18,6 +21,9 @@ logger = logging.getLogger(__name__)
 class DocumentsAPIView(APIView):
 
     permission_classes = (IsAuthenticated,)
+
+    # NOTE: Enable file upload in Swagger Docs
+    parser_classes = (MultiPartParser,)
 
     @staticmethod
     @swagger_auto_schema(

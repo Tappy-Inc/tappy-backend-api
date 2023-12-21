@@ -9,7 +9,7 @@ logger = logging.getLogger(__name__)
 
 class Document(BaseModel):
     
-    user = models.OneToOneField(User, on_delete=models.CASCADE, null=False, blank=False)
+    user = models.ForeignKey(User, related_name='documents', on_delete=models.CASCADE)
     file_name = models.CharField(max_length=255, null=False, blank=False)
     file_type = models.CharField(max_length=255, null=False, blank=False)
     file_source = models.CharField(max_length=255, null=False, blank=False)

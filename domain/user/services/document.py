@@ -26,7 +26,7 @@ def create_document(
         file_name: str, 
         file_type: str, 
         file_source: str, 
-        file_upload: str
+        file_upload
     ) -> Document:
     document = Document.objects.create(
         user=user, 
@@ -43,7 +43,7 @@ def update_document(
         new_file_name: str, 
         new_file_type: str, 
         new_file_source: str, 
-        new_file_upload: str
+        new_file_upload
     ) -> Document:
     document.file_name = new_file_name
     document.file_type = new_file_type
