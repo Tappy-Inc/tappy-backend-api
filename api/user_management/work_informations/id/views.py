@@ -2,7 +2,13 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
 
+# Permissions
+from domain.user.permissions.groups import IsAdminOrHumanResource
+
+# Serializers
 from .serializers import ReadWorkInformationSerializer, UpdateWorkInformationSerializer, DeleteWorkInformationSerializer
+
+# Services
 from domain.user.services.work_information import get_work_information_by_id, delete_work_information, update_work_information
 
 from django.shortcuts import get_object_or_404
@@ -16,7 +22,7 @@ logger = logging.getLogger(__name__)
 
 class WorkInformationIdAPIView(APIView):
 
-    permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAdminOrHumanResource,)
 
     @staticmethod
     @swagger_auto_schema(

@@ -3,10 +3,15 @@ from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.pagination import PageNumberPagination
 
+# Permissions
+from domain.user.permissions.groups import IsAdminOrHumanResource
+
+# Serializers
 from .serializers import ReadGovernmentInformationSerializer, \
     CreateGovernmentInformationSerializer, PaginateReadGovernmentInformationSerializer, \
     PaginateQueryReadGovernmentInformationSerializer
 
+# Services
 from domain.user.services.government_information import get_government_informations, create_government_information
 
 from drf_yasg.utils import swagger_auto_schema
@@ -17,7 +22,7 @@ logger = logging.getLogger(__name__)
 
 class GovernmentInformationsAPIView(APIView):
 
-    permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAdminOrHumanResource,)
 
     @staticmethod
     @swagger_auto_schema(

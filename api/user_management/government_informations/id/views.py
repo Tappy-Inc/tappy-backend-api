@@ -2,7 +2,13 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
 
+# Permissions
+from domain.user.permissions.groups import IsAdminOrHumanResource
+
+# Serializers
 from .serializers import ReadGovernmentInformationSerializer, UpdateGovernmentInformationSerializer, DeleteGovernmentInformationSerializer
+
+# Services
 from domain.user.services.government_information import get_government_information_by_id, delete_government_information, update_government_information
 
 from django.shortcuts import get_object_or_404
@@ -16,7 +22,7 @@ logger = logging.getLogger(__name__)
 
 class GovernmentInformationIdAPIView(APIView):
 
-    permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAdminOrHumanResource,)
 
     @staticmethod
     @swagger_auto_schema(

@@ -3,7 +3,13 @@ from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.pagination import PageNumberPagination
 
+# Permissions
+from domain.user.permissions.groups import IsAdminOrHumanResource
+
+# Serializers
 from .serializers import WorkScheduleSerializer, CreateWorkScheduleSerializer
+
+# Services
 from domain.user.services.work_schedule import get_work_schedules, create_work_schedule, get_work_schedule_by_user
 
 from drf_yasg.utils import swagger_auto_schema
@@ -14,7 +20,7 @@ logger = logging.getLogger(__name__)
 
 class WorkSchedulesAPIView(APIView):
 
-    permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAdminOrHumanResource,)
 
     @staticmethod
     @swagger_auto_schema(

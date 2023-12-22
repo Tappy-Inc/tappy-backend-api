@@ -3,8 +3,13 @@ from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.pagination import PageNumberPagination
 
+# Permissions
+from domain.user.permissions.groups import IsAdmin
+
+# Serializers
 from .serializers import PaginateQueryReadJobPositionSerializer, PaginateReadJobPositionSerializer, ReadJobPositionSerializer, CreateJobPositionSerializer
 
+# Services
 from domain.system.services.department import get_department_by_id
 from domain.system.services.job_position import get_job_positions_by_department, create_job_position
 
@@ -16,7 +21,7 @@ logger = logging.getLogger(__name__)
 
 class DepartmentsIdJobPositionsAPIView(APIView):
 
-    permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAdmin,)
 
     @staticmethod
     @swagger_auto_schema(

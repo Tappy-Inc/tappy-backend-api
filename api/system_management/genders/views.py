@@ -4,6 +4,9 @@ from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.pagination import PageNumberPagination
 
+# Permissions
+from domain.user.permissions.groups import IsAdmin
+
 # Serializers
 from .serializers import ReadGenderSerializer, \
     CreateGenderSerializer, PaginateReadGenderSerializer, \
@@ -22,7 +25,7 @@ logger = logging.getLogger(__name__)
 
 class GendersAPIView(APIView):
 
-    permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAdmin,)
 
     @staticmethod
     @swagger_auto_schema(

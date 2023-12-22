@@ -3,10 +3,15 @@ from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.pagination import PageNumberPagination
 
+# Permissions
+from domain.user.permissions.groups import IsAdmin
+
+# Serializers
 from .serializers import ReadEmploymentTypeSerializer, \
     CreateEmploymentTypeSerializer, PaginateReadEmploymentTypeSerializer, \
     PaginateQueryReadEmploymentTypeSerializer
 
+# Services
 from domain.system.services.employment_type import get_employment_types, create_employment_type
 
 from drf_yasg.utils import swagger_auto_schema
@@ -17,7 +22,7 @@ logger = logging.getLogger(__name__)
 
 class EmploymentTypesAPIView(APIView):
 
-    permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAdmin,)
 
     @staticmethod
     @swagger_auto_schema(

@@ -27,7 +27,7 @@ class IsEmployee(permissions.BasePermission):
         return request.user and _has_group_permission
 
 
-class IsAdminUser(permissions.BasePermission):
+class IsAdmin(permissions.BasePermission):
     required_groups = ['ADMIN']
 
     def has_permission(self, request, view):

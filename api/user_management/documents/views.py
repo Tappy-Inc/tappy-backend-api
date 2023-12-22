@@ -6,10 +6,15 @@ from rest_framework.pagination import PageNumberPagination
 # NOTE: Enable file upload in Swagger Docs
 from rest_framework.parsers import MultiPartParser
 
+# Permissions
+from domain.user.permissions.groups import IsAdminOrHumanResource
+
+# Serializers
 from .serializers import ReadDocumentSerializer, \
     CreateDocumentSerializer, PaginateReadDocumentSerializer, \
     PaginateQueryReadDocumentSerializer
 
+# Services
 from domain.user.services.document import get_documents, create_document
 
 from drf_yasg.utils import swagger_auto_schema
@@ -20,7 +25,7 @@ logger = logging.getLogger(__name__)
 
 class DocumentsAPIView(APIView):
 
-    permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAdminOrHumanResource,)
 
     # NOTE: Enable file upload in Swagger Docs
     parser_classes = (MultiPartParser,)

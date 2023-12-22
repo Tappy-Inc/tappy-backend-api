@@ -2,7 +2,13 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
 
+# Permissions
+from domain.user.permissions.groups import IsAdminOrHumanResource
+
+# Serializers
 from .serializers import ReadProfileSerializer, UpdateProfileSerializer, DeleteProfileSerializer
+
+# Services
 from domain.user.services.profile import get_profile_by_id, delete_profile, update_profile
 
 from django.shortcuts import get_object_or_404
@@ -16,7 +22,7 @@ logger = logging.getLogger(__name__)
 
 class ProfileIdAPIView(APIView):
 
-    permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAdminOrHumanResource,)
 
     @staticmethod
     @swagger_auto_schema(

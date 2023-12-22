@@ -2,7 +2,13 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
 
+# Permissions
+from domain.user.permissions.groups import IsAdminOrHumanResource
+
+# Serializers
 from .serializers import ReadEducationalBackgroundSerializer, UpdateEducationalBackgroundSerializer, DeleteEducationalBackgroundSerializer
+
+# Services
 from domain.user.services.educational_background import get_educational_background_by_id, delete_educational_background, update_educational_background
 
 from django.shortcuts import get_object_or_404
@@ -16,7 +22,7 @@ logger = logging.getLogger(__name__)
 
 class EducationalBackgroundIdAPIView(APIView):
 
-    permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAdminOrHumanResource,)
 
     @staticmethod
     @swagger_auto_schema(

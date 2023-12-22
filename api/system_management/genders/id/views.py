@@ -3,6 +3,9 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
 
+# Permissions
+from domain.user.permissions.groups import IsAdmin
+
 # Serializers
 from .serializers import ReadGenderSerializer, \
     UpdateGenderSerializer, DeleteGenderSerializer
@@ -23,7 +26,7 @@ logger = logging.getLogger(__name__)
 
 class GendersIdAPIView(APIView):
 
-    permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAdmin,)
 
     @staticmethod
     @swagger_auto_schema(
