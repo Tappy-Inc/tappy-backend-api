@@ -3,7 +3,7 @@ from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
 
 from .serializers import ReadGovernmentInformationSerializer
-from domain.user.models import GovernmentInformation
+from domain.user.services.government_information import get_government_information_by_user
 
 from drf_yasg.utils import swagger_auto_schema
 
@@ -24,7 +24,7 @@ class GovernmentInformationAPIView(APIView):
         tags=["employee.government-information"],
     )
     def get(request):
-        government_information = GovernmentInformation.objects.get(user=request.user)
+        government_information = get_government_information_by_user(user=request.user)
         serializer = ReadGovernmentInformationSerializer(government_information)
         return Response(serializer.data)
 

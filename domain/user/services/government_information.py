@@ -6,6 +6,12 @@ from domain.user.models import GovernmentInformation
 import logging
 logger = logging.getLogger(__name__)
 
+
+def get_government_information_by_user(user: User) -> GovernmentInformation:
+    government_information = GovernmentInformation.objects.filter(user=user).first()
+    logger.info(f"{government_information} fetched for user {user.username}")
+    return government_information
+
 def get_government_informations() -> List[GovernmentInformation]:
     government_informations = GovernmentInformation.objects.all().order_by('id')
     logger.info(f"{government_informations} fetched")
