@@ -57,3 +57,8 @@ def update_document(
     document.save()
     logger.info(f"\"{document}\" has been updated.")
     return document
+
+def get_documents_by_user(user: User) -> List[Document]:
+    documents = Document.objects.filter(user=user)
+    logger.info(f"{len(documents)} documents fetched for user {user.id}")
+    return documents
