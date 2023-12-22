@@ -22,7 +22,6 @@ class Profile(BaseModel):
     user = models.OneToOneField(User, related_name='profile', on_delete=models.CASCADE)
     bio = models.TextField(max_length=500, blank=True)
     location = models.CharField(max_length=30, blank=True)
-    middle_name = models.CharField(max_length=30, blank=False)
     gender = models.ForeignKey(Gender, on_delete=models.PROTECT)
     civil_status = models.CharField(max_length=10, choices=CIVIL_STATUS_CHOICES, blank=True)
     employee_id = models.CharField(max_length=30, unique=True)

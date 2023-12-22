@@ -33,7 +33,6 @@ def create_profile(
         user: User, 
         bio: str, 
         location: str, 
-        middle_name: str, 
         gender: Gender, 
         civil_status: str, 
         employee_id: str, 
@@ -44,7 +43,6 @@ def create_profile(
         user=user, 
         bio=bio, 
         location=location, 
-        middle_name=middle_name, 
         gender=gender, 
         civil_status=civil_status, 
         employee_id=employee_id, 
@@ -59,7 +57,6 @@ def update_profile(
         profile: Profile,
         new_bio: str, 
         new_location: str, 
-        new_middle_name: str, 
         new_gender: Gender, 
         new_civil_status: str, 
         new_employee_id: str, 
@@ -68,7 +65,6 @@ def update_profile(
     ) -> Profile:
     profile.bio = new_bio
     profile.location = new_location
-    profile.middle_name = new_middle_name
     profile.gender = new_gender
     profile.civil_status = new_civil_status
     profile.employee_id = new_employee_id

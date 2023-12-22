@@ -54,14 +54,15 @@ class Command(BaseCommand):
             password = User.objects.make_random_password()
             first_name = fake.first_name()
             last_name = fake.last_name()
-            user = User.objects.create_user(username=username, email=email, password=password, first_name=first_name, last_name=last_name)
+            middle_name = fake.first_name()
+            user = User.objects.create_user(username=username, email=email, password=password, first_name=first_name, last_name=last_name, middle_name=middle_name)
+            user.save()
             user.save()
 
             profile = Profile(
                 user=user, 
                 bio=fake.text(max_nb_chars=500), 
                 location=fake.city(), 
-                middle_name=fake.first_name(), 
                 gender=fake.random_element(elements=genders), 
                 civil_status=fake.random_element(elements=civil_statuses), 
                 employee_id=fake.random_int(min=100000, max=999999), 
@@ -113,14 +114,6 @@ class Command(BaseCommand):
                     is_rest_day=day in rest_days
                 )
                 work_schedule.save()
-
-            # document = Document(
-            #     user=user,
-            #     file_name=fake.file_name(),
-            #     file_type=fake.file_extension(),
-            #     file_source=fake.file_path()
-            # )
-            # document.save()
 
             self.stdout.write(self.style.SUCCESS('Successfully created user "%s"' % username))
 

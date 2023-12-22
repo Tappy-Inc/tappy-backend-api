@@ -58,7 +58,7 @@ class GovernmentInformationAdmin(ModelAdmin):
 
 @admin.register(Profile)
 class ProfileAdmin(ModelAdmin):
-    list_display = ('id', 'user', 'get_user_first_name', 'get_user_last_name', 'get_user_email', 'get_bio', 'location', 'middle_name', 'gender', 'civil_status', 'employee_id', 'birth_date', 'manager')
+    list_display = ('id', 'user', 'get_user_first_name', 'get_user_last_name', 'get_user_email', 'get_bio', 'location', 'gender', 'civil_status', 'employee_id', 'birth_date', 'manager')
     search_fields = ('user',)
     list_filter = ('gender', 'civil_status',)
 

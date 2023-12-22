@@ -18,7 +18,6 @@ class ReadProfileSerializer(serializers.ModelSerializer):
             'user',
             'bio',
             'location',
-            'middle_name',
             'gender',
             'civil_status',
             'employee_id',
