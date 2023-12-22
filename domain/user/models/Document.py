@@ -10,7 +10,7 @@ logger = logging.getLogger(__name__)
 class Document(BaseModel):
     
     def user_directory_path(self, filename):
-        return 
+        return f"user_{self.user.id}/documents/{filename}"
 
     user = models.ForeignKey(User, related_name='documents', on_delete=models.CASCADE)
     file_name = models.CharField(max_length=255)
