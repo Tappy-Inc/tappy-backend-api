@@ -3,7 +3,7 @@ from rest_framework import serializers
 # Models
 from domain.user.models import WorkInformation
 from domain.system.models import Department, JobLevel, EmploymentType, WorkSetup
-from django.contrib.auth.models import User
+from domain.user.models.User import User
 
 import logging
 logger = logging.getLogger(__name__)

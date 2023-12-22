@@ -1,7 +1,7 @@
 from django.db import models
 from simple_history.models import HistoricalRecords
 from domain.common.models.Base import BaseModel
-from django.contrib.auth.models import User
+from domain.user.models.User import User
 
 import logging
 logger = logging.getLogger(__name__)
@@ -10,7 +10,7 @@ logger = logging.getLogger(__name__)
 class Document(BaseModel):
     
     def user_directory_path(self, filename):
-        return f"user_{self.user.id}/documents/{filename}"
+        return 
 
     user = models.ForeignKey(User, related_name='documents', on_delete=models.CASCADE)
     file_name = models.CharField(max_length=255)

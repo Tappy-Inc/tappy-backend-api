@@ -266,3 +266,5 @@ AWS_S3_ENDPOINT_URL = env('DO_SPACES_URL')
 AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=300',}
 AWS_LOCATION = env('DO_LOCATION')
 
+# Django: abstract-user
+AUTH_USER_MODEL = "domain_user.User"

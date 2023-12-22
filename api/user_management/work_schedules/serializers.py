@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from django.contrib.auth.models import User
+from domain.user.models.User import User
 from domain.user.models import WorkSchedule
 
 

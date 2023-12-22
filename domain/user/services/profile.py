@@ -3,7 +3,7 @@ from django.utils import timezone
 from typing import List
 
 # Models
-from django.contrib.auth.models import User
+from domain.user.models.User import User
 from domain.system.models.Gender import Gender
 from domain.user.models import Profile
 

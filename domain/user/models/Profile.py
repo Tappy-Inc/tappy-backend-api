@@ -1,9 +1,9 @@
 from django.db import models
 from simple_history.models import HistoricalRecords
 from domain.common.models.Base import BaseModel
+from domain.user.models.User import User
 from domain.system.models.Gender import Gender
 
-from django.contrib.auth.models import User
 
 import logging
 logger = logging.getLogger(__name__)

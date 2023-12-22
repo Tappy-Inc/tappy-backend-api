@@ -1,7 +1,7 @@
 from rest_framework import serializers
 
 # Models
-from django.contrib.auth.models import User
+from domain.user.models.User import User
 
 import logging
 logger = logging.getLogger(__name__)

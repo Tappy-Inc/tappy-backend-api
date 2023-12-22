@@ -1,4 +1,6 @@
 from django.contrib import admin
+# Django: abstract-user
+from django.contrib.auth.admin import UserAdmin
 
 # Register your models here.
 from domain.user.models.Document import Document
@@ -9,7 +11,7 @@ from domain.user.models.WorkInformation import WorkInformation
 from domain.user.models.WorkSchedule import WorkSchedule
 
 # Library: django-unfold
-from django.contrib.auth.models import User
+from domain.user.models.User import User
 from django.contrib.auth.models import Group
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.admin import GroupAdmin as BaseGroupAdmin
@@ -18,8 +20,14 @@ from unfold.admin import ModelAdmin
 from unfold.forms import AdminPasswordChangeForm, UserChangeForm, UserCreationForm
 
 # Library: django-unfold
-admin.site.unregister(User)
+# admin.site.unregister(User) # NOTE: Uncomment this if not using Abstract User
 admin.site.unregister(Group)
+
+# Django: abstract-user
+fields = list(UserAdmin.fieldsets)
+# fields[0] = auth related fields, fields[1] = personal info, fields[2] = permissions, fields[3] = date joined, fields[4] = last login
+fields[1] = (None, {'fields': ('first_name', 'last_name', 'middle_name')})
+UserAdmin.fieldsets = tuple(fields)
 
 # Library: django-unfold
 @admin.register(User)

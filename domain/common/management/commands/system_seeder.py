@@ -1,7 +1,7 @@
 from django.core.management.base import BaseCommand
 
 # User Domain
-from django.contrib.auth.models import User
+from domain.user.models.User import User
 from domain.user.models.Profile import Profile
 
 # System Domain

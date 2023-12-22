@@ -1,3 +1,4 @@
+from .User import User
 from .Profile import Profile
 from .Document import Document
 from .EducationalBackground import EducationalBackground

@@ -2,7 +2,7 @@ from rest_framework import serializers
 
 # Models
 from domain.user.models import WorkInformation
-from django.contrib.auth.models import User
+from domain.user.models.User import User
 
 from domain.system.models import Department
 from domain.system.models import JobLevel

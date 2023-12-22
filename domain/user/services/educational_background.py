@@ -1,6 +1,6 @@
 from django.utils import timezone
 from typing import List
-from django.contrib.auth.models import User
+from domain.user.models.User import User
 from domain.user.models import EducationalBackground
 
 import logging
