@@ -1,4 +1,5 @@
 from django.core.management.base import BaseCommand
+from django.contrib.auth.models import Group
 
 # User Domain
 from domain.user.models.User import User
@@ -20,7 +21,7 @@ from domain.system.models.Department import Department
 from faker import Faker
 
 class Command(BaseCommand):
-    help = 'Create default employment types, job levels, work setups, departments, job positions and genders'
+    help = 'Create default employment types, job levels, work setups, departments, job positions, genders and groups'
 
     def add_arguments(self, parser):
         parser.add_argument('count', type=int, help='Indicates the number of users to be created')
@@ -28,6 +29,12 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
 
         fake = Faker()
+
+        # Create groups
+        group_names = ['ADMIN', 'HUMAN_RESOURCE', 'EMPLOYEE']
+        for group_name in group_names:
+            Group.objects.get_or_create(name=group_name)
+
 
         genders = Gender.objects.filter(gender__in=['Male', 'Female'])
         civil_statuses = ['Single', 'Married', 'Divorced', 'Widowed']
@@ -47,16 +54,29 @@ class Command(BaseCommand):
         ]
         degree = fake.random_element(elements=degree_names)
         
-        
-        for _ in range(options['count']):
+        for i in range(options['count']):
             username = fake.user_name()
             email = fake.email()
-            password = User.objects.make_random_password()
+            # password = User.objects.make_random_password()
+            password = 'Pass@12345'
             first_name = fake.first_name()
             last_name = fake.last_name()
             middle_name = fake.first_name()
             user = User.objects.create_user(username=username, email=email, password=password, first_name=first_name, last_name=last_name, middle_name=middle_name)
             user.save()
+
+            # Assigning group based on the iteration
+            # If it's the first iteration, assign the user to the 'ADMIN' group
+            if i == 0:
+                group = Group.objects.get(name='ADMIN')
+            # If it's the second iteration, assign the user to the 'HUMAN_RESOURCE' group
+            elif i == 1:
+                group = Group.objects.get(name='HUMAN_RESOURCE')
+            # For all other iterations, assign the user to the 'EMPLOYEE' group
+            else:
+                group = Group.objects.get(name='EMPLOYEE')
+                
+            user.groups.add(group)
             user.save()
 
             profile = Profile(

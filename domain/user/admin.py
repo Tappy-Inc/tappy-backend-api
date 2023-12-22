@@ -35,6 +35,7 @@ class UserAdmin(BaseUserAdmin, ModelAdmin):
     form = UserChangeForm
     add_form = UserCreationForm
     change_password_form = AdminPasswordChangeForm
+    ordering = ('id',)
 
 # Library: django-unfold
 @admin.register(Group)
