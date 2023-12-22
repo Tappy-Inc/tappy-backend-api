@@ -53,4 +53,5 @@ urlpatterns = [
     path('authentication/', include('api.authentication.urls')),
     path('system-management/', include('api.system_management.urls')),
     path('user-management/', include('api.user_management.urls')),
+    path('authenticated/', include('api.authenticated.urls')),
 ]

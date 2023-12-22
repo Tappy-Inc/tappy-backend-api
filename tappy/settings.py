@@ -84,6 +84,7 @@ INSTALLED_APPS = [
     # API
     'api.system_management',
     'api.user_management',
+    'api.authenticated',
 ]
 
 MIDDLEWARE = [

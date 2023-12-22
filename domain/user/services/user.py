@@ -49,3 +49,11 @@ def update_user(
     user.save()
     logger.info(f"\"{user}\" has been updated.")
     return user
+
+
+def change_password(user: User, new_password: str) -> User:
+    user.set_password(new_password)
+    user.updated_at = timezone.now()
+    user.save()
+    logger.info(f"Password for \"{user}\" has been updated.")
+    return user
