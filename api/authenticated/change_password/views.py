@@ -19,7 +19,7 @@ class ChangePasswordAPIView(APIView):
     @swagger_auto_schema(
         operation_description="description",
         operation_id="change_password",
-        tags=["authenticated.change-password"],
+        tags=["authenticated"],
         request_body=ChangePasswordSerializer,
         responses={
             200: ChangePasswordResponseSerializer()
