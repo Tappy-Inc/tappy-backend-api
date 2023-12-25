@@ -10,7 +10,7 @@ logger = logging.getLogger(__name__)
 class ReadGovernmentInformationSerializer(serializers.ModelSerializer):
 
     class Meta:
-        ref_name = "user_management.government_informations.id.ReadGovernmentInformationSerializer"
+        ref_name = "user-management.government-informations.id.ReadGovernmentInformationSerializer"
         model = GovernmentInformation
         fields = [
             'id',
@@ -39,7 +39,7 @@ class UpdateGovernmentInformationSerializer(serializers.ModelSerializer):
     rdo_number = serializers.CharField(max_length=30, required=False)
 
     class Meta:
-        ref_name = "user_management.government_informations.id.UpdateGovernmentInformationSerializer"
+        ref_name = "user-management.government-informations.id.UpdateGovernmentInformationSerializer"
         model = GovernmentInformation
         fields = [
             'sss_no',
@@ -56,7 +56,7 @@ class UpdateGovernmentInformationSerializer(serializers.ModelSerializer):
 class DeleteGovernmentInformationSerializer(serializers.Serializer): # noqa
 
     class Meta:
-        ref_name = "user_management.government_informations.id.DeleteGovernmentInformationSerializer"
+        ref_name = "user-management.government-informations.id.DeleteGovernmentInformationSerializer"
 
     operation = serializers.CharField(max_length=100)
     domain = serializers.CharField(max_length=200)

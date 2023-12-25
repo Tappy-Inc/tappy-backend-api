@@ -10,7 +10,7 @@ logger = logging.getLogger(__name__)
 class ReadWorkScheduleSerializer(serializers.ModelSerializer):
 
     class Meta:
-        ref_name = "employee.work_schedules.ReadWorkScheduleSerializer"
+        ref_name = "employee.work-schedules.ReadWorkScheduleSerializer"
         model = WorkSchedule
         fields = [
             'id',

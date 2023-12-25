@@ -11,7 +11,7 @@ logger = logging.getLogger(__name__)
 class ReadProfileSerializer(serializers.ModelSerializer):
 
     class Meta:
-        ref_name = "user_management.users.id.profile.ReadProfileSerializer"
+        ref_name = "user-management.users.id.profile.ReadProfileSerializer"
         model = Profile
         fields = [
             'id',
@@ -30,7 +30,7 @@ class ReadUserSerializer(serializers.ModelSerializer):
     profile = ReadProfileSerializer(read_only=True)
 
     class Meta:
-        ref_name = "user_management.users.id.profile.ReadUserSerializer"
+        ref_name = "user-management.users.id.profile.ReadUserSerializer"
         model = User
         fields = [
             'id',

@@ -10,7 +10,7 @@ logger = logging.getLogger(__name__)
 class ReadUserSerializer(serializers.ModelSerializer):
 
     class Meta:
-        ref_name = "user_management.users.id.ReadUserSerializer"
+        ref_name = "user-management.users.id.ReadUserSerializer"
         model = User
         fields = [
             'id',
@@ -29,7 +29,7 @@ class UpdateUserSerializer(serializers.ModelSerializer):
     username = serializers.CharField(max_length=150, required=False)
 
     class Meta:
-        ref_name = "user_management.users.id.UpdateUserSerializer"
+        ref_name = "user-management.users.id.UpdateUserSerializer"
         model = User
         fields = [
             'username',
@@ -43,7 +43,7 @@ class UpdateUserSerializer(serializers.ModelSerializer):
 class DeleteUserSerializer(serializers.Serializer): # noqa
 
     class Meta:
-        ref_name = "user_management.users.id.DeleteUserSerializer"
+        ref_name = "user-management.users.id.DeleteUserSerializer"
 
     operation = serializers.CharField(max_length=100)
     domain = serializers.CharField(max_length=200)

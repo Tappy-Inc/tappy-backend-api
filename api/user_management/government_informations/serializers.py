@@ -9,7 +9,7 @@ logger = logging.getLogger(__name__)
 
 class ReadGovernmentInformationSerializer(serializers.ModelSerializer):
     class Meta:
-        ref_name = "user-management.government_informations.ReadGovernmentInformationSerializer"
+        ref_name = "user-management.government-informations.ReadGovernmentInformationSerializer"
         model = GovernmentInformation
         fields = [
             'id',
@@ -28,7 +28,7 @@ class ReadGovernmentInformationSerializer(serializers.ModelSerializer):
 class CreateGovernmentInformationSerializer(serializers.ModelSerializer):
 
     class Meta:
-        ref_name = "user-management.government_informations.CreateGovernmentInformationSerializer"
+        ref_name = "user-management.government-informations.CreateGovernmentInformationSerializer"
         model = GovernmentInformation
         fields = [
             'user',
@@ -46,7 +46,7 @@ class CreateGovernmentInformationSerializer(serializers.ModelSerializer):
 class PaginateReadGovernmentInformationSerializer(serializers.Serializer): # noqa
 
     class Meta:
-        ref_name = "user-management.government_informations.PaginateReadGovernmentInformationSerializer"
+        ref_name = "user-management.government-informations.PaginateReadGovernmentInformationSerializer"
 
     count = serializers.IntegerField()
     next = serializers.URLField()
@@ -57,6 +57,6 @@ class PaginateReadGovernmentInformationSerializer(serializers.Serializer): # noq
 class PaginateQueryReadGovernmentInformationSerializer(serializers.Serializer): # noqa
 
     class Meta:
-        ref_name = "user-management.government_informations.PaginateQueryReadGovernmentInformationSerializer"
+        ref_name = "user-management.government-informations.PaginateQueryReadGovernmentInformationSerializer"
 
     page = serializers.IntegerField(required=False, help_text="A page number within the paginated result set.")

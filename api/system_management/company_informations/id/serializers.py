@@ -10,7 +10,7 @@ logger = logging.getLogger(__name__)
 class ReadCompanyInformationSerializer(serializers.ModelSerializer):
 
     class Meta:
-        ref_name = "system_management.company_informations.id.ReadCompanyInformationSerializer"
+        ref_name = "system-management.company-informations.id.ReadCompanyInformationSerializer"
         model = CompanyInformation
         fields = [
             'id',
@@ -27,7 +27,7 @@ class ReadCompanyInformationSerializer(serializers.ModelSerializer):
 class UpdateCompanyInformationSerializer(serializers.ModelSerializer):
 
     class Meta:
-        ref_name = "system_management.company_informations.id.UpdateCompanyInformationSerializer"
+        ref_name = "system-management.company-informations.id.UpdateCompanyInformationSerializer"
         model = CompanyInformation
         fields = [
             'company_name',
@@ -41,7 +41,7 @@ class UpdateCompanyInformationSerializer(serializers.ModelSerializer):
 class DeleteCompanyInformationSerializer(serializers.Serializer): # noqa
 
     class Meta:
-        ref_name = "system_management.company_informations.id.DeleteCompanyInformationSerializer"
+        ref_name = "system-management.company-informations.id.DeleteCompanyInformationSerializer"
 
     operation = serializers.CharField(max_length=100)
     domain = serializers.CharField(max_length=200)

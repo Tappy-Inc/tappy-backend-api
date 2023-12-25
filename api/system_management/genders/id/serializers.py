@@ -10,7 +10,7 @@ logger = logging.getLogger(__name__)
 class ReadGenderSerializer(serializers.ModelSerializer):
 
     class Meta:
-        ref_name = "system_management.genders.id.ReadGenderSerializer"
+        ref_name = "system-management.genders.id.ReadGenderSerializer"
         model = Gender
         fields = [
             'id',
@@ -23,7 +23,7 @@ class ReadGenderSerializer(serializers.ModelSerializer):
 class UpdateGenderSerializer(serializers.ModelSerializer):
 
     class Meta:
-        ref_name = "system_management.genders.id.UpdateGenderSerializer"
+        ref_name = "system-management.genders.id.UpdateGenderSerializer"
         model = Gender
         fields = [
             'gender',
@@ -33,7 +33,7 @@ class UpdateGenderSerializer(serializers.ModelSerializer):
 class DeleteGenderSerializer(serializers.Serializer): # noqa
 
     class Meta:
-        ref_name = "system_management.genders.id.DeleteGenderSerializer"
+        ref_name = "system-management.genders.id.DeleteGenderSerializer"
 
     operation = serializers.CharField(max_length=100)
     domain = serializers.CharField(max_length=200)

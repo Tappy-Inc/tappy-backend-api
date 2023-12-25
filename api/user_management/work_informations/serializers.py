@@ -15,35 +15,35 @@ logger = logging.getLogger(__name__)
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
-        ref_name = "user-management.work_informations.UserSerializer"
+        ref_name = "user-management.work-informations.UserSerializer"
         model = User
         fields = ['id', 'username', 'email', 'first_name', 'last_name']
 
 
 class DepartmentSerializer(serializers.ModelSerializer):
     class Meta:
-        ref_name = "user-management.work_informations.DepartmentSerializer"
+        ref_name = "user-management.work-informations.DepartmentSerializer"
         model = Department
         fields = ['id', 'department_name']
 
 
 class JobLevelSerializer(serializers.ModelSerializer):
     class Meta:
-        ref_name = "user-management.work_informations.JobLevelSerializer"
+        ref_name = "user-management.work-informations.JobLevelSerializer"
         model = JobLevel
         fields = ['id', 'level']
 
 
 class EmploymentTypeSerializer(serializers.ModelSerializer):
     class Meta:
-        ref_name = "user-management.work_informations.EmploymentTypeSerializer"
+        ref_name = "user-management.work-informations.EmploymentTypeSerializer"
         model = EmploymentType
         fields = ['id', 'employment_type']
 
 
 class WorkSetupSerializer(serializers.ModelSerializer):
     class Meta:
-        ref_name = "user-management.work_informations.WorkSetupSerializer"
+        ref_name = "user-management.work-informations.WorkSetupSerializer"
         model = WorkSetup
         fields = ['id', 'work_setup']
 
@@ -56,7 +56,7 @@ class ReadWorkInformationSerializer(serializers.ModelSerializer):
     work_setup = WorkSetupSerializer(read_only=True)
 
     class Meta:
-        ref_name = "user-management.work_informations.ReadWorkInformationSerializer"
+        ref_name = "user-management.work-informations.ReadWorkInformationSerializer"
         model = WorkInformation
         fields = [
             'id',
@@ -71,7 +71,7 @@ class ReadWorkInformationSerializer(serializers.ModelSerializer):
 class CreateWorkInformationSerializer(serializers.ModelSerializer):
 
     class Meta:
-        ref_name = "user-management.work_informations.CreateWorkInformationSerializer"
+        ref_name = "user-management.work-informations.CreateWorkInformationSerializer"
         model = WorkInformation
         fields = [
             'user',
@@ -85,7 +85,7 @@ class CreateWorkInformationSerializer(serializers.ModelSerializer):
 class PaginateReadWorkInformationSerializer(serializers.Serializer): # noqa
 
     class Meta:
-        ref_name = "user-management.work_informations.PaginateReadWorkInformationSerializer"
+        ref_name = "user-management.work-informations.PaginateReadWorkInformationSerializer"
 
     count = serializers.IntegerField()
     next = serializers.URLField()
@@ -96,6 +96,6 @@ class PaginateReadWorkInformationSerializer(serializers.Serializer): # noqa
 class PaginateQueryReadWorkInformationSerializer(serializers.Serializer): # noqa
 
     class Meta:
-        ref_name = "user-management.work_informations.PaginateQueryReadWorkInformationSerializer"
+        ref_name = "user-management.work-informations.PaginateQueryReadWorkInformationSerializer"
 
     page = serializers.IntegerField(required=False, help_text="A page number within the paginated result set.")

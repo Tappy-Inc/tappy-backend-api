@@ -10,25 +10,25 @@ logger = logging.getLogger(__name__)
 
 class DepartmentSerializer(serializers.ModelSerializer):
     class Meta:
-        ref_name = "user_management.work_informations.id.DepartmentSerializer"
+        ref_name = "user-management.work-informations.id.DepartmentSerializer"
         model = Department
         fields = ['id', 'department_name']
 
 class JobLevelSerializer(serializers.ModelSerializer):
     class Meta:
-        ref_name = "user_management.work_informations.id.JobLevelSerializer"
+        ref_name = "user-management.work-informations.id.JobLevelSerializer"
         model = JobLevel
         fields = ['id', 'level']
 
 class EmploymentTypeSerializer(serializers.ModelSerializer):
     class Meta:
-        ref_name = "user_management.work_informations.id.EmploymentTypeSerializer"
+        ref_name = "user-management.work-informations.id.EmploymentTypeSerializer"
         model = EmploymentType
         fields = ['id', 'employment_type']
 
 class WorkSetupSerializer(serializers.ModelSerializer):
     class Meta:
-        ref_name = "user_management.work_informations.id.WorkSetupSerializer"
+        ref_name = "user-management.work-informations.id.WorkSetupSerializer"
         model = WorkSetup
         fields = ['id', 'work_setup']
 
@@ -39,7 +39,7 @@ class ReadWorkInformationSerializer(serializers.ModelSerializer):
     work_setup = WorkSetupSerializer()
 
     class Meta:
-        ref_name = "user_management.work_informations.id.ReadWorkInformationSerializer"
+        ref_name = "user-management.work-informations.id.ReadWorkInformationSerializer"
         model = WorkInformation
         fields = [
             'id',
@@ -57,7 +57,7 @@ class UpdateWorkInformationSerializer(serializers.ModelSerializer):
     work_setup = serializers.PrimaryKeyRelatedField(queryset=WorkSetup.objects.all(), required=False)
 
     class Meta:
-        ref_name = "user_management.work_informations.id.UpdateWorkInformationSerializer"
+        ref_name = "user-management.work-informations.id.UpdateWorkInformationSerializer"
         model = WorkInformation
         fields = [
             'department',
@@ -69,7 +69,7 @@ class UpdateWorkInformationSerializer(serializers.ModelSerializer):
 class DeleteWorkInformationSerializer(serializers.Serializer): # noqa
 
     class Meta:
-        ref_name = "user_management.work_informations.id.DeleteWorkInformationSerializer"
+        ref_name = "user-management.work-informations.id.DeleteWorkInformationSerializer"
 
     operation = serializers.CharField(max_length=100)
     domain = serializers.CharField(max_length=200)

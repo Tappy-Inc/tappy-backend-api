@@ -9,7 +9,7 @@ logger = logging.getLogger(__name__)
 
 class ReadEducationalBackgroundSerializer(serializers.ModelSerializer):
     class Meta:
-        ref_name = "user-management.educational_backgrounds.ReadEducationalBackgroundSerializer"
+        ref_name = "user-management.educational-backgrounds.ReadEducationalBackgroundSerializer"
         model = EducationalBackground
         fields = [
             'id',
@@ -25,7 +25,7 @@ class ReadEducationalBackgroundSerializer(serializers.ModelSerializer):
 class CreateEducationalBackgroundSerializer(serializers.ModelSerializer):
 
     class Meta:
-        ref_name = "user-management.educational_backgrounds.CreateEducationalBackgroundSerializer"
+        ref_name = "user-management.educational-backgrounds.CreateEducationalBackgroundSerializer"
         model = EducationalBackground
         fields = [
             'user',
@@ -40,7 +40,7 @@ class CreateEducationalBackgroundSerializer(serializers.ModelSerializer):
 class PaginateReadEducationalBackgroundSerializer(serializers.Serializer): # noqa
 
     class Meta:
-        ref_name = "user-management.educational_backgrounds.PaginateReadEducationalBackgroundSerializer"
+        ref_name = "user-management.educational-backgrounds.PaginateReadEducationalBackgroundSerializer"
 
     count = serializers.IntegerField()
     next = serializers.URLField()
@@ -51,6 +51,6 @@ class PaginateReadEducationalBackgroundSerializer(serializers.Serializer): # noq
 class PaginateQueryReadEducationalBackgroundSerializer(serializers.Serializer): # noqa
 
     class Meta:
-        ref_name = "user-management.educational_backgrounds.PaginateQueryReadEducationalBackgroundSerializer"
+        ref_name = "user-management.educational-backgrounds.PaginateQueryReadEducationalBackgroundSerializer"
 
     page = serializers.IntegerField(required=False, help_text="A page number within the paginated result set.")

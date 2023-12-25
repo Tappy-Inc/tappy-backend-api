@@ -10,7 +10,7 @@ logger = logging.getLogger(__name__)
 class ReadWorkSetupSerializer(serializers.ModelSerializer):
 
     class Meta:
-        ref_name = "system_management.work_setups.id.ReadWorkSetupSerializer"
+        ref_name = "system-management.work-setups.id.ReadWorkSetupSerializer"
         model = WorkSetup
         fields = [
             'id',
@@ -23,7 +23,7 @@ class ReadWorkSetupSerializer(serializers.ModelSerializer):
 class UpdateWorkSetupSerializer(serializers.ModelSerializer):
 
     class Meta:
-        ref_name = "system_management.work_setups.id.UpdateWorkSetupSerializer"
+        ref_name = "system-management.work-setups.id.UpdateWorkSetupSerializer"
         model = WorkSetup
         fields = [
             'work_setup',
@@ -33,7 +33,7 @@ class UpdateWorkSetupSerializer(serializers.ModelSerializer):
 class DeleteWorkSetupSerializer(serializers.Serializer): # noqa
 
     class Meta:
-        ref_name = "system_management.work_setups.id.DeleteWorkSetupSerializer"
+        ref_name = "system-management.work-setups.id.DeleteWorkSetupSerializer"
 
     operation = serializers.CharField(max_length=100)
     domain = serializers.CharField(max_length=200)

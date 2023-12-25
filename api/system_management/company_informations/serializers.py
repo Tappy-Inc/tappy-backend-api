@@ -9,7 +9,7 @@ logger = logging.getLogger(__name__)
 
 class ReadCompanyInformationSerializer(serializers.ModelSerializer):
     class Meta:
-        ref_name = "system-management.work_informations.ReadCompanyInformationSerializer"
+        ref_name = "system-management.work-informations.ReadCompanyInformationSerializer"
         model = CompanyInformation
         fields = [
             'id',
@@ -26,7 +26,7 @@ class ReadCompanyInformationSerializer(serializers.ModelSerializer):
 class CreateCompanyInformationSerializer(serializers.ModelSerializer):
 
     class Meta:
-        ref_name = "system-management.work_informations.CreateCompanyInformationSerializer"
+        ref_name = "system-management.work-informations.CreateCompanyInformationSerializer"
         model = CompanyInformation
         fields = [
             'company_name',
@@ -40,7 +40,7 @@ class CreateCompanyInformationSerializer(serializers.ModelSerializer):
 class PaginateReadCompanyInformationSerializer(serializers.Serializer): # noqa
 
     class Meta:
-        ref_name = "system-management.work_informations.PaginateReadCompanyInformationSerializer"
+        ref_name = "system-management.work-informations.PaginateReadCompanyInformationSerializer"
 
     count = serializers.IntegerField()
     next = serializers.URLField()
@@ -51,7 +51,7 @@ class PaginateReadCompanyInformationSerializer(serializers.Serializer): # noqa
 class PaginateQueryReadCompanyInformationSerializer(serializers.Serializer): # noqa
 
     class Meta:
-        ref_name = "system-management.work_informations.PaginateQueryReadCompanyInformationSerializer"
+        ref_name = "system-management.work-informations.PaginateQueryReadCompanyInformationSerializer"
 
     page = serializers.IntegerField(required=False, help_text="A page number within the paginated result set.")
 

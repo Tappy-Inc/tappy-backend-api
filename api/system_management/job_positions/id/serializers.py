@@ -10,7 +10,7 @@ logger = logging.getLogger(__name__)
 class ReadJobPositionSerializer(serializers.ModelSerializer):
 
     class Meta:
-        ref_name = "system_management.job_positions.id.ReadJobPositionSerializer"
+        ref_name = "system-management.job-positions.id.ReadJobPositionSerializer"
         model = JobPosition
         fields = [
             'id',
@@ -24,7 +24,7 @@ class ReadJobPositionSerializer(serializers.ModelSerializer):
 class UpdateJobPositionSerializer(serializers.ModelSerializer):
 
     class Meta:
-        ref_name = "system_management.job_positions.id.UpdateJobPositionSerializer"
+        ref_name = "system-management.job-positions.id.UpdateJobPositionSerializer"
         model = JobPosition
         fields = [
             'position_name',
@@ -35,7 +35,7 @@ class UpdateJobPositionSerializer(serializers.ModelSerializer):
 class DeleteJobPositionSerializer(serializers.Serializer): # noqa
 
     class Meta:
-        ref_name = "system_management.job_positions.id.DeleteJobPositionSerializer"
+        ref_name = "system-management.job-positions.id.DeleteJobPositionSerializer"
 
     operation = serializers.CharField(max_length=100)
     domain = serializers.CharField(max_length=200)

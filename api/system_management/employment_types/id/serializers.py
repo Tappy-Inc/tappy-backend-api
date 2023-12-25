@@ -10,7 +10,7 @@ logger = logging.getLogger(__name__)
 class ReadEmploymentTypeSerializer(serializers.ModelSerializer):
 
     class Meta:
-        ref_name = "system_management.employment_types.id.ReadEmploymentTypeSerializer"
+        ref_name = "system-management.employment-types.id.ReadEmploymentTypeSerializer"
         model = EmploymentType
         fields = [
             'id',
@@ -23,7 +23,7 @@ class ReadEmploymentTypeSerializer(serializers.ModelSerializer):
 class UpdateEmploymentTypeSerializer(serializers.ModelSerializer):
 
     class Meta:
-        ref_name = "system_management.employment_types.id.UpdateEmploymentTypeSerializer"
+        ref_name = "system-management.employment-types.id.UpdateEmploymentTypeSerializer"
         model = EmploymentType
         fields = [
             'employment_type',
@@ -33,7 +33,7 @@ class UpdateEmploymentTypeSerializer(serializers.ModelSerializer):
 class DeleteEmploymentTypeSerializer(serializers.Serializer): # noqa
 
     class Meta:
-        ref_name = "system_management.employment_types.id.DeleteEmploymentTypeSerializer"
+        ref_name = "system-management.employment-types.id.DeleteEmploymentTypeSerializer"
 
     operation = serializers.CharField(max_length=100)
     domain = serializers.CharField(max_length=200)

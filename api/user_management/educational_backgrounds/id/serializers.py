@@ -10,7 +10,7 @@ logger = logging.getLogger(__name__)
 class ReadEducationalBackgroundSerializer(serializers.ModelSerializer):
 
     class Meta:
-        ref_name = "user_management.educational_backgrounds.id.ReadEducationalBackgroundSerializer"
+        ref_name = "user-management.educational-backgrounds.id.ReadEducationalBackgroundSerializer"
         model = EducationalBackground
         fields = [
             'id',
@@ -33,7 +33,7 @@ class UpdateEducationalBackgroundSerializer(serializers.ModelSerializer):
     degree = serializers.CharField(max_length=255, required=False)
 
     class Meta:
-        ref_name = "user_management.educational_backgrounds.id.UpdateEducationalBackgroundSerializer"
+        ref_name = "user-management.educational-backgrounds.id.UpdateEducationalBackgroundSerializer"
         model = EducationalBackground
         fields = [
             'education_type',
@@ -47,7 +47,7 @@ class UpdateEducationalBackgroundSerializer(serializers.ModelSerializer):
 class DeleteEducationalBackgroundSerializer(serializers.Serializer): # noqa
 
     class Meta:
-        ref_name = "user_management.educational_backgrounds.id.DeleteEducationalBackgroundSerializer"
+        ref_name = "user-management.educational-backgrounds.id.DeleteEducationalBackgroundSerializer"
 
     operation = serializers.CharField(max_length=100)
     domain = serializers.CharField(max_length=200)

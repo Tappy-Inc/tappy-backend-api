@@ -10,7 +10,7 @@ logger = logging.getLogger(__name__)
 class ReadDepartmentSerializer(serializers.ModelSerializer):
 
     class Meta:
-        ref_name = "system_management.departments.id.ReadDepartmentSerializer"
+        ref_name = "system-management.departments.id.ReadDepartmentSerializer"
         model = Department
         fields = [
             'id',
@@ -23,7 +23,7 @@ class ReadDepartmentSerializer(serializers.ModelSerializer):
 class UpdateDepartmentSerializer(serializers.ModelSerializer):
 
     class Meta:
-        ref_name = "system_management.departments.id.UpdateDepartmentSerializer"
+        ref_name = "system-management.departments.id.UpdateDepartmentSerializer"
         model = Department
         fields = [
             'department_name',
@@ -33,7 +33,7 @@ class UpdateDepartmentSerializer(serializers.ModelSerializer):
 class DeleteDepartmentSerializer(serializers.Serializer): # noqa
 
     class Meta:
-        ref_name = "system_management.departments.id.DeleteDepartmentSerializer"
+        ref_name = "system-management.departments.id.DeleteDepartmentSerializer"
 
     operation = serializers.CharField(max_length=100)
     domain = serializers.CharField(max_length=200)

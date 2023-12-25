@@ -10,7 +10,7 @@ logger = logging.getLogger(__name__)
 class ReadGovernmentInformationSerializer(serializers.ModelSerializer):
 
     class Meta:
-        ref_name = "employee.government_informations.ReadGovernmentInformationSerializer"
+        ref_name = "employee.government-informations.ReadGovernmentInformationSerializer"
         model = GovernmentInformation
         fields = [
             'id',
