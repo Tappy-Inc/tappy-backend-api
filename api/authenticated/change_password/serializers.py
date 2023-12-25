@@ -3,6 +3,10 @@ from rest_framework import serializers
 
 
 class ChangePasswordSerializer(serializers.Serializer):
+
+    class Meta:
+        ref_name = "authenticated.change-password.ChangePasswordSerializer"
+
     existing_password = serializers.CharField(max_length=128)
     new_password = serializers.CharField(max_length=128, validators=[validate_password])
     password_confirmation = serializers.CharField(max_length=128, validators=[validate_password])
@@ -14,4 +18,8 @@ class ChangePasswordSerializer(serializers.Serializer):
 
 
 class ChangePasswordResponseSerializer(serializers.Serializer):
+
+    class Meta:
+        ref_name = "authenticated.change-password.ChangePasswordResponseSerializer"
+
     message = serializers.CharField(max_length=256)
