@@ -53,8 +53,6 @@ Create a new directory and start a new Django app:
 - [x] Work Schedule related to User (All Type of Users)
 - [x] Work Information related to User (Position, Client, Compensation package, )
 - [x] Work History - employee work history (Promotion history)
-- 
-
 
 ```javascript
 fetch('https://api.tappy.com.ph/authentication/session/', {
