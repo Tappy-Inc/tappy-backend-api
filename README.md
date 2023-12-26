@@ -66,8 +66,6 @@ fetch('https://api.tappy.com.ph/authentication/session/', {
   .catch((error) => console.error('Error:', error));
 ```
 
-Reploy
-
 ### Drop all tables
 
 ```sql
