@@ -7,7 +7,7 @@ from memphis import Memphis, Headers, MemphisError, MemphisConnectError, Memphis
 async def main():
     try:
         memphis = Memphis()
-        await memphis.connect(host=os.getenv("MEMPHIS_HOST"), username=os.getenv("MEMPHIS_USERNAME"), password=os.getenv("MEMPHIS_PASSWORD"), account_id=os.getenv("MEMPHIS_ACCOUNT_ID"))
+        await memphis.connect(host=os.getenv("MEMPHIS_HOST"), username=os.getenv("MEMPHIS_PRODUCER_USERNAME"), password=os.getenv("MEMPHIS_PRODUCER_PASSWORD"), account_id=os.getenv("MEMPHIS_ACCOUNT_ID"))
         
         producer = await memphis.producer(station_name=os.getenv("MEMPHIS_STATION_NAME"), producer_name=os.getenv("MEMPHIS_PRODUCER_NAME")) # you can send the message parameter as dict as well
         

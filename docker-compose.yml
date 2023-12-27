@@ -34,3 +34,15 @@ services:
       - postgres
     environment:
       WAIT_HOSTS: postgres:5432
+  memphis:
+    build:
+      context: .
+      dockerfile: memphis/Dockerfile
+    volumes:
+      - .:/app
+    env_file:
+      - .env
+    depends_on:
+      - postgres
+    environment:
+      WAIT_HOSTS: postgres:5432
