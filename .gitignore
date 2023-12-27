@@ -74,3 +74,5 @@ venv.bak/
 data/
 backup/
 terraform/
+
+memphis/.env
