@@ -45,10 +45,19 @@ async def main():
         
     try:
         memphis = Memphis()
-        await memphis.connect(host=os.getenv("MEMPHIS_HOST"), username=os.getenv("MEMPHIS_CONSUMER_USERNAME"), password=os.getenv("MEMPHIS_CONSUMER_PASSWORD"), account_id=os.getenv("MEMPHIS_ACCOUNT_ID"))
+        await memphis.connect(
+            host=os.getenv("MEMPHIS_HOST"), 
+            username=os.getenv("MEMPHIS_CONSUMER_USERNAME"), 
+            password=os.getenv("MEMPHIS_CONSUMER_PASSWORD"), 
+            account_id=os.getenv("MEMPHIS_ACCOUNT_ID")
+        )
         
-        consumer = await memphis.consumer(station_name=os.getenv("MEMPHIS_STATION_NAME"), consumer_name=os.getenv("MEMPHIS_CONSUMER_NAME"), consumer_group=os.getenv("MEMPHIS_CONSUMER_GROUP"))
-        # consumer.set_context({"key": "value"})
+        consumer = await memphis.consumer(
+            station_name=os.getenv("MEMPHIS_STATION_NAME"), 
+            consumer_name=os.getenv("MEMPHIS_CONSUMER_NAME"), 
+            consumer_group=os.getenv("MEMPHIS_CONSUMER_GROUP")
+        )
+        
         consumer.consume(msg_handler)
         
         # Keep your main thread alive so the consumer will keep receiving data
