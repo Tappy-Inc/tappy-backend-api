@@ -13,9 +13,6 @@ logger = logging.getLogger(__name__)
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'tappy.settings')
 os.environ["DJANGO_ALLOW_ASYNC_UNSAFE"] = "true"
 
-# https://neon.tech/docs/guides/django
-os.environ["CONN_MAX_AGE"] = "0"
-
 django.setup()
 
 # Events
