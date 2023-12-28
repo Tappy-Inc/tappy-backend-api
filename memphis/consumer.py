@@ -31,7 +31,7 @@ async def main():
                 logger.info("message: %s", msg_data)
                 # Events Handler
                 if msg_data['event'] == "user_created":
-                    async_send_welcome_email = sync_to_async(send_welcome_email, thread_sensitive=False)
+                    async_send_welcome_email = sync_to_async(send_welcome_email, thread_sensitive=True)
                     response = await async_send_welcome_email(msg_data['data']['user_id'])
                     logger.info(response)
                 # Acknowledge the message
