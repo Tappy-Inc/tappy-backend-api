@@ -58,7 +58,6 @@ async def main():
             consumer_group=os.getenv("MEMPHIS_CONSUMER_GROUP")
         )
         
-        # consumer.set_context({"key": "value"})
         consumer.consume(msg_handler)
         
         # Keep your main thread alive so the consumer will keep receiving data
