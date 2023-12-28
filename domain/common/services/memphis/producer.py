@@ -1,27 +1,26 @@
 from __future__ import annotations
-import asyncio
+
 import os
+import json
+
+# Memphis
 from memphis import Memphis, Headers, MemphisError, MemphisConnectError, MemphisHeaderError, MemphisSchemaError
 
+import logging
+logger = logging.getLogger(__name__)
 
-async def main():
+
+async def create_message(payload: dict):
     try:
         memphis = Memphis()
         await memphis.connect(host=os.getenv("MEMPHIS_HOST"), username=os.getenv("MEMPHIS_PRODUCER_USERNAME"), password=os.getenv("MEMPHIS_PRODUCER_PASSWORD"), account_id=os.getenv("MEMPHIS_ACCOUNT_ID"))
-        
-        producer = await memphis.producer(station_name=os.getenv("MEMPHIS_STATION_NAME"), producer_name=os.getenv("MEMPHIS_PRODUCER_NAME")) # you can send the message parameter as dict as well
-        
+        producer = await memphis.producer(station_name=os.getenv("MEMPHIS_STATION_NAME"), producer_name=os.getenv("MEMPHIS_PRODUCER_NAME"))  
         headers = Headers()
-        headers.add("<key>", "<value>")
-    
-        for i in range(5):
-            await producer.produce(bytearray("Message #" + str(i) + ": Hello world", "utf-8"), headers=headers)
+
+        await producer.produce(bytearray(json.dumps(payload), "utf-8"), headers=headers)
         
     except (MemphisError, MemphisConnectError, MemphisHeaderError, MemphisSchemaError) as e:
-        print(e)
+        logger.error(e)
         
     finally:
         await memphis.close()
-        
-if __name__ == "__main__":
-    asyncio.run(main())

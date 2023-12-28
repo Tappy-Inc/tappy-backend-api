@@ -9,13 +9,9 @@ logger = logging.getLogger(__name__)
 
 
 def get_users() -> List[User]:
-    try:
-        users = User.objects.all().order_by('id')
-        logger.info(f"{users} fetched")
-        return users
-    except Exception as e:
-        logger.error(f"Error occurred while fetching users: {e}")
-        return []
+    users = User.objects.all().order_by('id')
+    logger.info(f"{users} fetched")
+    return users
 
 
 def get_user_by_id(user_id: int) -> User:
@@ -62,14 +58,3 @@ def change_password(user: User, new_password: str) -> User:
     logger.info(f"Password for \"{user}\" has been updated.")
     return user
 
-
-# async def get_users_async() -> List[User]:
-#     logger.info("Fetching all users asynchronously.")
-#     try:
-#         get_users_sync = sync_to_async(User.objects.all().order_by('id'), thread_sensitive=True)
-#         users = await get_users_sync()
-#     except Exception as e:
-#         logger.error(f"Error fetching users: {e}")
-#         return []
-#     logger.info(f"{users} fetched")
-#     return users
