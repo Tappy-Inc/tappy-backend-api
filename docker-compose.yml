@@ -46,4 +46,5 @@ services:
       - postgres
     environment:
       WAIT_HOSTS: postgres:5432
-    command: python manage.py memphis_consumer
+    command: >
+      sh -c "watchmedo auto-restart -d . -p '*.py' --recursive -- python manage.py memphis_consumer"
