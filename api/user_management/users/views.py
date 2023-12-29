@@ -18,7 +18,7 @@ from domain.user.services.user import get_users, create_user
 
 # Memphis
 from asgiref.sync import async_to_sync
-from domain.common.services.memphis.producer import create_message
+from domain.memphis.services.producer import create_message
 
 # Library: drf-yasg
 from drf_yasg.utils import swagger_auto_schema
