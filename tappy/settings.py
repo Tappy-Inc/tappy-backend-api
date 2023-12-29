@@ -135,9 +135,9 @@ DATABASES = {
         'HOST': os.environ.get('DJANGO_DB_HOST'),
         'PORT': os.environ.get('DJANGO_DB_PORT'),
         # NOTE: Comment this if not using Vercel Database
+        'CONN_MAX_AGE': 0,
+        'CONN_HEALTH_CHECKS': True,
         'OPTIONS': {
-            'conn_max_age': 0,
-            'conn_health_checks': True,
             'sslmode': 'require',
             'options': f"endpoint={os.environ.get('DJANGO_DB_ENDPOINT')}",
 
