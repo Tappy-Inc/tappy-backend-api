@@ -37,7 +37,7 @@ services:
   memphis:
     build:
       context: .
-      dockerfile: memphis/Dockerfile
+      dockerfile: Dockerfile.local
     volumes:
       - .:/app
     env_file:
@@ -46,3 +46,4 @@ services:
       - postgres
     environment:
       WAIT_HOSTS: postgres:5432
+    command: python manage.py memphis_consumer
