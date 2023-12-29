@@ -6,5 +6,5 @@ from unfold.admin import ModelAdmin
 
 @admin.register(Template)
 class TemplateAdmin(ModelAdmin):
-    list_display = ('id', 'name', 'subject', 'body')
+    list_display = ('id', 'name', 'subject',)
     search_fields = ('name',)
