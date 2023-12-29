@@ -4,10 +4,16 @@ import os
 import json
 
 # Django
+import django
 from asgiref.sync import sync_to_async
 
 import logging
 logger = logging.getLogger(__name__)
+
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'tappy.settings')
+os.environ["DJANGO_ALLOW_ASYNC_UNSAFE"] = "true"
+
+django.setup()
 
 # Events
 from events.mailer import send_welcome_email
