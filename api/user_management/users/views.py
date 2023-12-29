@@ -13,7 +13,6 @@ from .serializers import ReadUserSerializer, \
     PaginateQueryReadUserSerializer
 
 # Services
-from domain.common.services.resend import send_email
 from domain.user.services.user import get_users, create_user
 
 # Memphis

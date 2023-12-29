@@ -3,7 +3,7 @@ from asgiref.sync import sync_to_async
 
 # Services
 from domain.user.services.user import get_user_by_id
-from domain.common.services.resend import send_email
+from domain.mailer.services.resend import send_email
 
 import logging
 logger = logging.getLogger(__name__)

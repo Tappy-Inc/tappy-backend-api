@@ -82,6 +82,7 @@ INSTALLED_APPS = [
     'domain.system',
     'domain.user',
     'domain.memphis',
+    'domain.mailer',
     # API
     'api.system_management',
     'api.user_management',
