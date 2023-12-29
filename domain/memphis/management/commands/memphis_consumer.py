@@ -11,8 +11,7 @@ import asyncio
 from memphis import Memphis, MemphisError, MemphisConnectError, MemphisHeaderError
 
 # Services
-from domain.user.services.user import get_user_by_id
-from domain.common.services.resend import send_email
+from domain.memphis.services.events.user_created import send_welcome_email
 
 # Django
 from asgiref.sync import sync_to_async
@@ -40,25 +39,8 @@ async def main():
                 # Events Handler
                 if msg_data['event'] == "user_created":
                     logger.info("user_created event")
-                    async_get_user_by_id = sync_to_async(get_user_by_id, thread_sensitive=True)
-                    user = await async_get_user_by_id(msg_data['data']['user_id'])
-                    async_send_email = sync_to_async(send_email, thread_sensitive=True)
-                    response = await async_send_email(
-                        to=[user.email],
-                        subject="Welcome to Tappy Inc.!",
-                        html="""
-                        <html>
-                        <body>
-                        <h1>Welcome to Tappy Inc.!</h1>
-                        <p>We are thrilled to have you on board. At Tappy Inc., we believe in creating a collaborative and innovative environment where every member can contribute their unique skills and perspectives.</p>
-                        <p>We are confident that you will bring great value to our team and we look forward to the amazing things we will achieve together.</p>
-                        <p>Once again, welcome to the team!</p>
-                        <p>Best,</p>
-                        <p>The Tappy Inc. Team</p>
-                        </body>
-                        </html>
-                        """
-                    )
+                    async_send_welcome_email = sync_to_async(send_welcome_email, thread_sensitive=True)
+                    response = await async_send_welcome_email(msg_data)
                     logger.info(response)                    
                 # Acknowledge the message
                 await msg.ack()

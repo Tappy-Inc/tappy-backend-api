@@ -81,6 +81,7 @@ INSTALLED_APPS = [
     'domain.common',
     'domain.system',
     'domain.user',
+    'domain.memphis',
     # API
     'api.system_management',
     'api.user_management',
@@ -226,8 +227,8 @@ LOGGING = {
 
 # Library: djangorestframework-simplejwt
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': datetime.timedelta(minutes=60),
-    'REFRESH_TOKEN_LIFETIME': datetime.timedelta(days=1)
+    'ACCESS_TOKEN_LIFETIME': datetime.timedelta(days=30),
+    'REFRESH_TOKEN_LIFETIME': datetime.timedelta(days=60)
 }
 
 # Library: djangorestframework
