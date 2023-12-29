@@ -31,7 +31,6 @@ class Command(BaseCommand):
 async def main():
 
     async def msg_handler(msgs, error, context):
-        logger.info("Message handler started")
         try:
             for msg in msgs:
                 msg_data = json.loads(msg.get_data().decode())
@@ -51,7 +50,7 @@ async def main():
             logger.error(e)
             return
         finally:
-            logger.info("Message handler finished")
+            pass
         
     try:
         logger.info("Initializing Memphis connection...")
