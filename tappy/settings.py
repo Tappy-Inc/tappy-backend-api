@@ -139,6 +139,7 @@ DATABASES = {
         'OPTIONS': {
             'sslmode': 'require',
             'options': f"endpoint={os.environ.get('DJANGO_DB_ENDPOINT')}",
+            'CONN_HEALTH_CHECKS': os.environ.get('DJANGO_CONN_HEALTH_CHECKS', True),
         } if os.environ.get('DJANGO_ENV') != 'local' else {}
     }
 }
