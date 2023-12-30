@@ -7,10 +7,14 @@ from domain.system.models.WorkSetup import WorkSetup
 from domain.system.models.Department import Department
 from domain.system.models.JobPosition import JobPosition
 from domain.system.models.Gender import Gender
+from domain.system.models.CompanyInformation import CompanyInformation
 
+# Mailer Domain
+from domain.mailer.models.Template import Template
+from domain.mailer.models.FromEmail import FromEmail
 
 class Command(BaseCommand):
-    help = 'Create default employment types, job levels, work setups, departments, job positions and genders'
+    help = 'Create default employment types, job levels, work setups, departments, job positions, genders, company information, templates and from emails'
 
     def handle(self, *args, **options):
 
@@ -168,4 +172,42 @@ class Command(BaseCommand):
         for gender in genders:
             Gender.objects.get_or_create(gender=gender)
             self.stdout.write(self.style.SUCCESS('Successfully created gender "%s"' % gender))
+
+        company_information = [
+            {
+                'company_name': 'Tappy Inc.',
+                'address': 'BGC, Taguig',
+                'number': '+639062131607',
+                'company_size': 100,
+                'industry': 'Software Development'
+            },
+        ]
+
+        for company in company_information:
+            CompanyInformation.objects.get_or_create(**company)
+            self.stdout.write(self.style.SUCCESS('Successfully created company information "%s"' % company['company_name']))
+
+        from_emails = [
+            {
+                'name': 'Tappy Inc.',
+                'email': 'info@tappy.com.ph'
+            },
+        ]
+
+        for from_email in from_emails:
+            FromEmail.objects.get_or_create(**from_email)
+            self.stdout.write(self.style.SUCCESS('Successfully created from email "%s"' % from_email['email']))
+
+        templates = [
+            {
+                'from_email': FromEmail.objects.get(id=1),
+                'name': 'welcome_email',
+                'subject': 'Welcome to Tappy Inc.',
+                'body': 'Welcome to Tappy Inc. We are glad to have you with us.'
+            },
+        ]
+
+        for template in templates:
+            Template.objects.get_or_create(**template)
+            self.stdout.write(self.style.SUCCESS('Successfully created template "%s"' % template['name']))
 
