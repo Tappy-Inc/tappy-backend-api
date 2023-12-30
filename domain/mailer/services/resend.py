@@ -6,10 +6,10 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-def send_email(to: List[str], subject: str, html: str) -> str:
+def send_email(from_email: str, to: List[str], subject: str, html: str) -> str:
     resend.api_key = os.environ.get('RESEND_API_KEY')
     params = {
-        "from": os.environ.get('RESEND_FROM'),
+        "from": from_email,
         "to": to,
         "subject": subject,
         "html": html,

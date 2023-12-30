@@ -11,6 +11,7 @@ logger = logging.getLogger(__name__)
 
 
 def send_welcome_email(msg_data: dict):
+
     user_id = msg_data['data']['user_id']
 
     user = get_user_by_id(user_id)
@@ -24,9 +25,11 @@ def send_welcome_email(msg_data: dict):
         return
     
     response = send_email(
+        from_email=f"{template.from_email.name} <{template.from_email.email}>",
         to=[user.email],
         subject=template.subject,
         html=template.body,
     )
     logger.info(response)
+    
     return response
