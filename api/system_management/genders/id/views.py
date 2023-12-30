@@ -33,7 +33,7 @@ class GendersIdAPIView(APIView):
         responses={
             200: ReadGenderSerializer()
         },
-        operation_description="description",
+        operation_description=f"This operation requires {permission_classes} permission",
         operation_id="genders_read",
         tags=["system-management.genders.id"],
     )
@@ -47,7 +47,7 @@ class GendersIdAPIView(APIView):
 
     @staticmethod
     @swagger_auto_schema(
-        operation_description="description",
+        operation_description=f"This operation requires {permission_classes} permission",
         operation_id="genders_delete",
         tags=["system-management.genders.id"],
         responses={
@@ -75,7 +75,7 @@ class GendersIdAPIView(APIView):
 
     @staticmethod
     @swagger_auto_schema(
-        operation_description="description",
+        operation_description=f"This operation requires {permission_classes} permission",
         operation_id="genders_update",
         tags=["system-management.genders.id"],
         request_body=UpdateGenderSerializer,
@@ -109,7 +109,7 @@ class GendersIdAPIView(APIView):
 
     @staticmethod
     @swagger_auto_schema(
-        operation_description="description",
+        operation_description=f"This operation requires {permission_classes} permission",
         operation_id="genders_patch",
         tags=["system-management.genders.id"],
         request_body=UpdateGenderSerializer,

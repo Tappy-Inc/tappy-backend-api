@@ -33,7 +33,7 @@ class WorkSetupsIdAPIView(APIView):
         responses={
             200: ReadWorkSetupSerializer()
         },
-        operation_description="description",
+        operation_description=f"This operation requires {permission_classes} permission",
         operation_id="work_setup_read",
         tags=["system-management.work-setups.id"],
     )
@@ -47,7 +47,7 @@ class WorkSetupsIdAPIView(APIView):
 
     @staticmethod
     @swagger_auto_schema(
-        operation_description="description",
+        operation_description=f"This operation requires {permission_classes} permission",
         operation_id="work_setup_delete",
         tags=["system-management.work-setups.id"],
         responses={
@@ -75,7 +75,7 @@ class WorkSetupsIdAPIView(APIView):
 
     @staticmethod
     @swagger_auto_schema(
-        operation_description="description",
+        operation_description=f"This operation requires {permission_classes} permission",
         operation_id="work_setup_update",
         tags=["system-management.work-setups.id"],
         request_body=UpdateWorkSetupSerializer,
@@ -109,7 +109,7 @@ class WorkSetupsIdAPIView(APIView):
 
     @staticmethod
     @swagger_auto_schema(
-        operation_description="description",
+        operation_description=f"This operation requires {permission_classes} permission",
         operation_id="work_setup_patch",
         tags=["system-management.work-setups.id"],
         request_body=UpdateWorkSetupSerializer,

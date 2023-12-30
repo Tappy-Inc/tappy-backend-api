@@ -33,7 +33,7 @@ class CompanyInformationsIdAPIView(APIView):
         responses={
             200: ReadCompanyInformationSerializer()
         },
-        operation_description="description",
+        operation_description=f"This operation requires {permission_classes} permission",
         operation_id="company_informations_read",
         tags=["system-management.company_informations.id"],
     )
@@ -47,7 +47,7 @@ class CompanyInformationsIdAPIView(APIView):
 
     @staticmethod
     @swagger_auto_schema(
-        operation_description="description",
+        operation_description=f"This operation requires {permission_classes} permission",
         operation_id="company_informations_delete",
         tags=["system-management.company_informations.id"],
         responses={
@@ -75,7 +75,7 @@ class CompanyInformationsIdAPIView(APIView):
 
     @staticmethod
     @swagger_auto_schema(
-        operation_description="description",
+        operation_description=f"This operation requires {permission_classes} permission",
         operation_id="company_informations_update",
         tags=["system-management.company_informations.id"],
         request_body=UpdateCompanyInformationSerializer,
@@ -113,7 +113,7 @@ class CompanyInformationsIdAPIView(APIView):
 
     @staticmethod
     @swagger_auto_schema(
-        operation_description="description",
+        operation_description=f"This operation requires {permission_classes} permission",
         operation_id="company_informations_patch",
         tags=["system-management.company_informations.id"],
         request_body=UpdateCompanyInformationSerializer,

@@ -17,7 +17,7 @@ class ChangePasswordAPIView(APIView):
 
     @staticmethod
     @swagger_auto_schema(
-        operation_description="description",
+        operation_description=f"This operation requires {permission_classes} permission",
         operation_id="change_password",
         tags=["authenticated"],
         request_body=ChangePasswordSerializer,

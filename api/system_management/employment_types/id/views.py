@@ -33,7 +33,7 @@ class EmploymentTypesIdAPIView(APIView):
         responses={
             200: ReadEmploymentTypeSerializer()
         },
-        operation_description="description",
+        operation_description=f"This operation requires {permission_classes} permission",
         operation_id="employment_type_read",
         tags=["system-management.employment-types.id"],
     )
@@ -47,7 +47,7 @@ class EmploymentTypesIdAPIView(APIView):
 
     @staticmethod
     @swagger_auto_schema(
-        operation_description="description",
+        operation_description=f"This operation requires {permission_classes} permission",
         operation_id="employment_type_delete",
         tags=["system-management.employment-types.id"],
         responses={
@@ -75,7 +75,7 @@ class EmploymentTypesIdAPIView(APIView):
 
     @staticmethod
     @swagger_auto_schema(
-        operation_description="description",
+        operation_description=f"This operation requires {permission_classes} permission",
         operation_id="employment_type_update",
         tags=["system-management.employment-types.id"],
         request_body=UpdateEmploymentTypeSerializer,
@@ -109,7 +109,7 @@ class EmploymentTypesIdAPIView(APIView):
 
     @staticmethod
     @swagger_auto_schema(
-        operation_description="description",
+        operation_description=f"This operation requires {permission_classes} permission",
         operation_id="employment_type_patch",
         tags=["system-management.employment-types.id"],
         request_body=UpdateEmploymentTypeSerializer,

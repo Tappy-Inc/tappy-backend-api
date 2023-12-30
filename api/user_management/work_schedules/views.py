@@ -27,6 +27,7 @@ class WorkSchedulesAPIView(APIView):
         responses={
             200: WorkScheduleSerializer()
         },
+        operation_description=f"This operation requires {permission_classes} permission",
         operation_id="work_schedules_list",
         tags=["user-management.work-schedules"]
     )
@@ -41,7 +42,7 @@ class WorkSchedulesAPIView(APIView):
     @staticmethod
     @swagger_auto_schema(
         request_body=CreateWorkScheduleSerializer,
-        operation_description="Create a new work schedule",
+        operation_description=f"This operation requires {permission_classes} permission",
         operation_id="work_schedules_create",
         tags=["user-management.work-schedules"],
         responses={

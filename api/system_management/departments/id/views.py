@@ -33,7 +33,7 @@ class DepartmentsIdAPIView(APIView):
         responses={
             200: ReadDepartmentSerializer()
         },
-        operation_description="description",
+        operation_description=f"This operation requires {permission_classes} permission",
         operation_id="departments_read",
         tags=["system-management.departments.id"],
     )
@@ -47,7 +47,7 @@ class DepartmentsIdAPIView(APIView):
 
     @staticmethod
     @swagger_auto_schema(
-        operation_description="description",
+        operation_description=f"This operation requires {permission_classes} permission",
         operation_id="departments_delete",
         tags=["system-management.departments.id"],
         responses={
@@ -75,7 +75,7 @@ class DepartmentsIdAPIView(APIView):
 
     @staticmethod
     @swagger_auto_schema(
-        operation_description="description",
+        operation_description=f"This operation requires {permission_classes} permission",
         operation_id="departments_update",
         tags=["system-management.departments.id"],
         request_body=UpdateDepartmentSerializer,
@@ -109,7 +109,7 @@ class DepartmentsIdAPIView(APIView):
 
     @staticmethod
     @swagger_auto_schema(
-        operation_description="description",
+        operation_description=f"This operation requires {permission_classes} permission",
         operation_id="departments_patch",
         tags=["system-management.departments.id"],
         request_body=UpdateDepartmentSerializer,

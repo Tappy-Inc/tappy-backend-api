@@ -26,6 +26,7 @@ class UserIdProfileAPIView(APIView):
         responses={
             200: ReadUserSerializer()
         },
+        operation_description=f"This operation requires {permission_classes} permission",
         operation_id="user_profile.",
         tags=["user-management.users.id.profile"],
     )

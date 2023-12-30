@@ -35,6 +35,7 @@ class DocumentsAPIView(APIView):
         responses={
             200: PaginateReadDocumentSerializer()
         },
+        operation_description=f"This operation requires {permission_classes} permission",
         operation_id="documents_list",
         tags=["user-management.documents"],
         query_serializer=PaginateQueryReadDocumentSerializer()
@@ -50,7 +51,7 @@ class DocumentsAPIView(APIView):
     @staticmethod
     @swagger_auto_schema(
         request_body=CreateDocumentSerializer,
-        operation_description="description",
+        operation_description=f"This operation requires {permission_classes} permission",
         operation_id="documents_create",
         tags=["user-management.documents"],
         responses={

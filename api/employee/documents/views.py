@@ -29,6 +29,7 @@ class DocumentAPIView(APIView):
     
     @staticmethod
     @swagger_auto_schema(
+        operation_description=f"This operation requires {permission_classes} permission",
         responses={
             200: ReadDocumentSerializer(many=True)
         },
@@ -43,7 +44,7 @@ class DocumentAPIView(APIView):
     @staticmethod
     @swagger_auto_schema(
         request_body=CreateDocumentSerializer,
-        operation_description="description",
+        operation_description=f"This operation requires {permission_classes} permission",
         operation_id="employee_documents_create",
         tags=["employee.documents"],
         responses={

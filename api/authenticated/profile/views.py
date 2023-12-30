@@ -19,6 +19,7 @@ class UserProfileAPIView(APIView):
         responses={
             200: UserSerializer()
         },
+        operation_description=f"This operation requires {permission_classes} permission",
         operation_id="user_profile_read",
         tags=["authenticated"],
     )

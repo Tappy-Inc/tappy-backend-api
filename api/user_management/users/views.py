@@ -35,6 +35,7 @@ class UsersAPIView(APIView):
         responses={
             200: PaginateReadUserSerializer()
         },
+        operation_description=f"This operation requires {permission_classes} permission",
         operation_id="users_list",
         tags=["user-management.users"],
         query_serializer=PaginateQueryReadUserSerializer()
@@ -50,7 +51,7 @@ class UsersAPIView(APIView):
     @staticmethod
     @swagger_auto_schema(
         request_body=CreateUserSerializer,
-        operation_description="description",
+        operation_description=f"This operation requires {permission_classes} permission",
         operation_id="users_create",
         tags=["user-management.users"],
         responses={

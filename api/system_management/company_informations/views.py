@@ -31,6 +31,7 @@ class CompanyInformationsAPIView(APIView):
         responses={
             200: PaginateReadCompanyInformationSerializer()
         },
+        operation_description=f"This operation requires {permission_classes} permission",
         operation_id="company_informations_list",
         tags=["system-management.company_informations"],
         query_serializer=PaginateQueryReadCompanyInformationSerializer()
@@ -46,7 +47,7 @@ class CompanyInformationsAPIView(APIView):
     @staticmethod
     @swagger_auto_schema(
         request_body=CreateCompanyInformationSerializer,
-        operation_description="description",
+        operation_description=f"This operation requires {permission_classes} permission",
         operation_id="company_informations_create",
         tags=["system-management.company_informations"],
         responses={

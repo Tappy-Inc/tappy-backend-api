@@ -29,7 +29,7 @@ class GovernmentInformationIdAPIView(APIView):
         responses={
             200: ReadGovernmentInformationSerializer()
         },
-        operation_description="description",
+        operation_description=f"This operation requires {permission_classes} permission",
         operation_id="government_informations_read",
         tags=["user-management.government-informations.id"],
     )
@@ -43,7 +43,7 @@ class GovernmentInformationIdAPIView(APIView):
 
     @staticmethod
     @swagger_auto_schema(
-        operation_description="description",
+        operation_description=f"This operation requires {permission_classes} permission",
         operation_id="government_informations_delete",
         tags=["user-management.government-informations.id"],
         responses={
@@ -70,7 +70,7 @@ class GovernmentInformationIdAPIView(APIView):
 
     @staticmethod
     @swagger_auto_schema(
-        operation_description="description",
+        operation_description=f"This operation requires {permission_classes} permission",
         operation_id="government_informations_update",
         tags=["user-management.government-informations.id"],
         request_body=UpdateGovernmentInformationSerializer,
@@ -108,7 +108,7 @@ class GovernmentInformationIdAPIView(APIView):
 
     @staticmethod
     @swagger_auto_schema(
-        operation_description="description",
+        operation_description=f"This operation requires {permission_classes} permission",
         operation_id="government_informations_patch",
         tags=["user-management.government-informations.id"],
         request_body=UpdateGovernmentInformationSerializer,

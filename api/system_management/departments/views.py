@@ -31,6 +31,7 @@ class DepartmentsAPIView(APIView):
         responses={
             200: PaginateReadDepartmentSerializer()
         },
+        operation_description=f"This operation requires {permission_classes} permission",
         operation_id="departments_list",
         tags=["system-management.departments"],
         query_serializer=PaginateQueryReadDepartmentSerializer()
@@ -46,7 +47,7 @@ class DepartmentsAPIView(APIView):
     @staticmethod
     @swagger_auto_schema(
         request_body=CreateDepartmentSerializer,
-        operation_description="description",
+        operation_description=f"This operation requires {permission_classes} permission",
         operation_id="departments_create",
         tags=["system-management.departments"],
         responses={

@@ -33,7 +33,7 @@ class JobPositionsIdAPIView(APIView):
         responses={
             200: ReadJobPositionSerializer()
         },
-        operation_description="description",
+        operation_description=f"This operation requires {permission_classes} permission",
         operation_id="job_positions_read",
         tags=["system-management.job-positions.id"],
     )
@@ -47,7 +47,7 @@ class JobPositionsIdAPIView(APIView):
 
     @staticmethod
     @swagger_auto_schema(
-        operation_description="description",
+        operation_description=f"This operation requires {permission_classes} permission",
         operation_id="job_positions_delete",
         tags=["system-management.job-positions.id"],
         responses={
@@ -75,7 +75,7 @@ class JobPositionsIdAPIView(APIView):
 
     @staticmethod
     @swagger_auto_schema(
-        operation_description="description",
+        operation_description=f"This operation requires {permission_classes} permission",
         operation_id="job_positions_update",
         tags=["system-management.job-positions.id"],
         request_body=UpdateJobPositionSerializer,
@@ -110,7 +110,7 @@ class JobPositionsIdAPIView(APIView):
 
     @staticmethod
     @swagger_auto_schema(
-        operation_description="description",
+        operation_description=f"This operation requires {permission_classes} permission",
         operation_id="job_positions_patch",
         tags=["system-management.job-positions.id"],
         request_body=UpdateJobPositionSerializer,

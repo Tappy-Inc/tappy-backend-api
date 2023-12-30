@@ -28,6 +28,7 @@ class WorkSetupsAPIView(APIView):
         responses={
             200: PaginateReadWorkSetupSerializer()
         },
+        operation_description=f"This operation requires {permission_classes} permission",
         operation_id="work_setup_list",
         tags=["system-management.work-setups"],
         query_serializer=PaginateQueryReadWorkSetupSerializer()
@@ -43,7 +44,7 @@ class WorkSetupsAPIView(APIView):
     @staticmethod
     @swagger_auto_schema(
         request_body=CreateWorkSetupSerializer,
-        operation_description="description",
+        operation_description=f"This operation requires {permission_classes} permission",
         operation_id="work_setup_create",
         tags=["system-management.work-setups"],
         responses={

@@ -29,7 +29,7 @@ class EducationalBackgroundIdAPIView(APIView):
         responses={
             200: ReadEducationalBackgroundSerializer()
         },
-        operation_description="description",
+        operation_description=f"This operation requires {permission_classes} permission",
         operation_id="educational_backgrounds_read",
         tags=["user-management.educational-backgrounds.id"],
     )
@@ -43,7 +43,7 @@ class EducationalBackgroundIdAPIView(APIView):
 
     @staticmethod
     @swagger_auto_schema(
-        operation_description="description",
+        operation_description=f"This operation requires {permission_classes} permission",
         operation_id="educational_backgrounds_delete",
         tags=["user-management.educational-backgrounds.id"],
         responses={
@@ -70,7 +70,7 @@ class EducationalBackgroundIdAPIView(APIView):
 
     @staticmethod
     @swagger_auto_schema(
-        operation_description="description",
+        operation_description=f"This operation requires {permission_classes} permission",
         operation_id="educational_backgrounds_update",
         tags=["user-management.educational-backgrounds.id"],
         request_body=UpdateEducationalBackgroundSerializer,
@@ -105,7 +105,7 @@ class EducationalBackgroundIdAPIView(APIView):
 
     @staticmethod
     @swagger_auto_schema(
-        operation_description="description",
+        operation_description=f"This operation requires {permission_classes} permission",
         operation_id="educational_backgrounds_patch",
         tags=["user-management.educational-backgrounds.id"],
         request_body=UpdateEducationalBackgroundSerializer,

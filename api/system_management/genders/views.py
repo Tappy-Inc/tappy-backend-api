@@ -32,6 +32,7 @@ class GendersAPIView(APIView):
         responses={
             200: PaginateReadGenderSerializer()
         },
+        operation_description=f"This operation requires {permission_classes} permission",
         operation_id="genders_list",
         tags=["system-management.genders"],
         query_serializer=PaginateQueryReadGenderSerializer()
@@ -47,7 +48,7 @@ class GendersAPIView(APIView):
     @staticmethod
     @swagger_auto_schema(
         request_body=CreateGenderSerializer,
-        operation_description="description",
+        operation_description=f"This operation requires {permission_classes} permission",
         operation_id="genders_create",
         tags=["system-management.genders"],
         responses={

@@ -29,6 +29,7 @@ class ProfilesAPIView(APIView):
         responses={
             200: PaginateReadProfileSerializer()
         },
+        operation_description=f"This operation requires {permission_classes} permission",
         operation_id="profiles_list",
         tags=["user-management.profiles"],
         query_serializer=PaginateQueryReadProfileSerializer()
@@ -44,7 +45,7 @@ class ProfilesAPIView(APIView):
     @staticmethod
     @swagger_auto_schema(
         request_body=CreateProfileSerializer,
-        operation_description="description",
+        operation_description=f"This operation requires {permission_classes} permission",
         operation_id="profiles_create",
         tags=["user-management.profiles"],
         responses={

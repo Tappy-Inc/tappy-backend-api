@@ -28,6 +28,7 @@ class EducationalBackgroundsAPIView(APIView):
         responses={
             200: PaginateReadEducationalBackgroundSerializer()
         },
+        operation_description=f"This operation requires {permission_classes} permission",
         operation_id="educational_backgrounds_list",
         tags=["user-management.educational-backgrounds"],
         query_serializer=PaginateQueryReadEducationalBackgroundSerializer()
@@ -43,7 +44,7 @@ class EducationalBackgroundsAPIView(APIView):
     @staticmethod
     @swagger_auto_schema(
         request_body=CreateEducationalBackgroundSerializer,
-        operation_description="description",
+        operation_description=f"This operation requires {permission_classes} permission",
         operation_id="educational_backgrounds_create",
         tags=["user-management.educational-backgrounds"],
         responses={

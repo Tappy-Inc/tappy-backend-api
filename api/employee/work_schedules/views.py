@@ -26,6 +26,7 @@ class WorkScheduleAPIView(APIView):
         responses={
             200: ReadWorkScheduleSerializer(many=True)
         },
+        operation_description=f"This operation requires {permission_classes} permission",
         operation_id="employee_work_schedule_read",
         tags=["employee.work-schedules"],
     )

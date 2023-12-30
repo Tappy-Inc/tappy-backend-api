@@ -29,6 +29,7 @@ class EmploymentTypesAPIView(APIView):
         responses={
             200: PaginateReadEmploymentTypeSerializer()
         },
+        operation_description=f"This operation requires {permission_classes} permission",
         operation_id="employment_type_list",
         tags=["system-management.employment-types"],
         query_serializer=PaginateQueryReadEmploymentTypeSerializer()
@@ -44,7 +45,7 @@ class EmploymentTypesAPIView(APIView):
     @staticmethod
     @swagger_auto_schema(
         request_body=CreateEmploymentTypeSerializer,
-        operation_description="description",
+        operation_description=f"This operation requires {permission_classes} permission",
         operation_id="employment_type_create",
         tags=["system-management.employment-types"],
         responses={

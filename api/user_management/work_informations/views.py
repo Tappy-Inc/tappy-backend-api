@@ -29,6 +29,7 @@ class WorkInformationsAPIView(APIView):
         responses={
             200: PaginateReadWorkInformationSerializer()
         },
+        operation_description=f"This operation requires {permission_classes} permission",
         operation_id="work_informations_list",
         tags=["user-management.work-informations"],
         query_serializer=PaginateQueryReadWorkInformationSerializer()
@@ -44,7 +45,7 @@ class WorkInformationsAPIView(APIView):
     @staticmethod
     @swagger_auto_schema(
         request_body=CreateWorkInformationSerializer,
-        operation_description="description",
+        operation_description=f"This operation requires {permission_classes} permission",
         operation_id="work_informations_create",
         tags=["user-management.work-informations"],
         responses={

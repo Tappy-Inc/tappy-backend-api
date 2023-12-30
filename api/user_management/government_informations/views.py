@@ -29,6 +29,7 @@ class GovernmentInformationsAPIView(APIView):
         responses={
             200: PaginateReadGovernmentInformationSerializer()
         },
+        operation_description=f"This operation requires {permission_classes} permission",
         operation_id="government_informations_list",
         tags=["user-management.government-informations"],
         query_serializer=PaginateQueryReadGovernmentInformationSerializer()
@@ -44,7 +45,7 @@ class GovernmentInformationsAPIView(APIView):
     @staticmethod
     @swagger_auto_schema(
         request_body=CreateGovernmentInformationSerializer,
-        operation_description="description",
+        operation_description=f"This operation requires {permission_classes} permission",
         operation_id="government_informations_create",
         tags=["user-management.government-informations"],
         responses={

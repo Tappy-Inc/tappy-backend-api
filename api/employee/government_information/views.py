@@ -26,6 +26,7 @@ class GovernmentInformationAPIView(APIView):
         responses={
             200: ReadGovernmentInformationSerializer()
         },
+        operation_description=f"This operation requires {permission_classes} permission",
         operation_id="employee_government_information_read",
         tags=["employee.government-information"],
     )

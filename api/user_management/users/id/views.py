@@ -33,7 +33,7 @@ class UserIdAPIView(APIView):
         responses={
             200: ReadUserSerializer()
         },
-        operation_description="description",
+        operation_description=f"This operation requires {permission_classes} permission",
         operation_id="users_read",
         tags=["user-management.users.id"],
     )
@@ -47,7 +47,7 @@ class UserIdAPIView(APIView):
 
     @staticmethod
     @swagger_auto_schema(
-        operation_description="description",
+        operation_description=f"This operation requires {permission_classes} permission",
         operation_id="users_delete",
         tags=["user-management.users.id"],
         responses={
@@ -75,7 +75,7 @@ class UserIdAPIView(APIView):
 
     @staticmethod
     @swagger_auto_schema(
-        operation_description="description",
+        operation_description=f"This operation requires {permission_classes} permission",
         operation_id="users_update",
         tags=["user-management.users.id"],
         request_body=UpdateUserSerializer,
@@ -113,7 +113,7 @@ class UserIdAPIView(APIView):
 
     @staticmethod
     @swagger_auto_schema(
-        operation_description="description",
+        operation_description=f"This operation requires {permission_classes} permission",
         operation_id="users_patch",
         tags=["user-management.users.id"],
         request_body=UpdateUserSerializer,

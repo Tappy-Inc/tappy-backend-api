@@ -29,7 +29,7 @@ class ProfileIdAPIView(APIView):
         responses={
             200: ReadProfileSerializer()
         },
-        operation_description="description",
+        operation_description=f"This operation requires {permission_classes} permission",
         operation_id="profiles_read",
         tags=["user-management.profiles.id"],
     )
@@ -43,7 +43,7 @@ class ProfileIdAPIView(APIView):
 
     @staticmethod
     @swagger_auto_schema(
-        operation_description="description",
+        operation_description=f"This operation requires {permission_classes} permission",
         operation_id="profiles_delete",
         tags=["user-management.profiles.id"],
         responses={
@@ -70,7 +70,7 @@ class ProfileIdAPIView(APIView):
 
     @staticmethod
     @swagger_auto_schema(
-        operation_description="description",
+        operation_description=f"This operation requires {permission_classes} permission",
         operation_id="profiles_update",
         tags=["user-management.profiles.id"],
         request_body=UpdateProfileSerializer,
@@ -107,7 +107,7 @@ class ProfileIdAPIView(APIView):
 
     @staticmethod
     @swagger_auto_schema(
-        operation_description="description",
+        operation_description=f"This operation requires {permission_classes} permission",
         operation_id="profiles_patch",
         tags=["user-management.profiles.id"],
         request_body=UpdateProfileSerializer,

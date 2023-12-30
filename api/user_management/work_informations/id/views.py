@@ -29,7 +29,7 @@ class WorkInformationIdAPIView(APIView):
         responses={
             200: ReadWorkInformationSerializer()
         },
-        operation_description="description",
+        operation_description=f"This operation requires {permission_classes} permission",
         operation_id="work_informations_read",
         tags=["user-management.work-informations.id"],
     )
@@ -43,7 +43,7 @@ class WorkInformationIdAPIView(APIView):
 
     @staticmethod
     @swagger_auto_schema(
-        operation_description="description",
+        operation_description=f"This operation requires {permission_classes} permission",
         operation_id="work_informations_delete",
         tags=["user-management.work-informations.id"],
         responses={
@@ -70,7 +70,7 @@ class WorkInformationIdAPIView(APIView):
 
     @staticmethod
     @swagger_auto_schema(
-        operation_description="description",
+        operation_description=f"This operation requires {permission_classes} permission",
         operation_id="work_informations_update",
         tags=["user-management.work-informations.id"],
         request_body=UpdateWorkInformationSerializer,
@@ -104,7 +104,7 @@ class WorkInformationIdAPIView(APIView):
 
     @staticmethod
     @swagger_auto_schema(
-        operation_description="description",
+        operation_description=f"This operation requires {permission_classes} permission",
         operation_id="work_informations_patch",
         tags=["user-management.work-informations.id"],
         request_body=UpdateWorkInformationSerializer,
