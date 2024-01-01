@@ -55,7 +55,7 @@ class Command(BaseCommand):
         degree = fake.random_element(elements=degree_names)
         
         for i in range(options['count']):
-            username = fake.user_name()
+            username = f"{fake.user_name()}_{fake.random_int(min=1000, max=9999)}"
             email = fake.email()
             # password = User.objects.make_random_password()
             password = 'Pass@12345'
@@ -68,11 +68,16 @@ class Command(BaseCommand):
             # Assigning group based on the iteration
             # If it's the first iteration, assign the user to the 'ADMIN' group
             if i == 0:
+                username = 'admin'
                 group = Group.objects.get(name='ADMIN')
             # If it's the second iteration, assign the user to the 'HUMAN_RESOURCE' group
             elif i == 1:
+                username = 'human_resource'
                 group = Group.objects.get(name='HUMAN_RESOURCE')
             # For all other iterations, assign the user to the 'EMPLOYEE' group
+            elif i == 2:
+                username = 'employee'
+                group = Group.objects.get(name='EMPLOYEE')
             else:
                 group = Group.objects.get(name='EMPLOYEE')
                 
