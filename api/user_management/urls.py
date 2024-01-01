@@ -12,7 +12,7 @@ from .educational_backgrounds.views import EducationalBackgroundsAPIView
 from .educational_backgrounds.id.views import EducationalBackgroundIdAPIView
 from .work_schedules.views import WorkSchedulesAPIView
 from .documents.views import DocumentsAPIView
-from .users.export_csv.views import ExportUsersCSVAPIView
+from .users.export_csv.views import UsersExportCSVAPIView
 
 urlpatterns = [
     path('users', UsersAPIView.as_view()),
@@ -28,5 +28,5 @@ urlpatterns = [
     path('educational-backgrounds/<int:educational_background_id>', EducationalBackgroundIdAPIView.as_view()),
     path('work-schedules', WorkSchedulesAPIView.as_view()),
     path('documents', DocumentsAPIView.as_view()),
-    path('users/export-csv', ExportUsersCSVAPIView.as_view()),
+    path('users/export-csv', UsersExportCSVAPIView.as_view()),
 ]

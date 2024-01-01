@@ -17,7 +17,7 @@ from drf_yasg.utils import swagger_auto_schema
 import logging
 logger = logging.getLogger(__name__)
 
-class ExportUsersCSVAPIView(APIView):
+class UsersExportCSVAPIView(APIView):
     
     permission_classes = (IsAdminOrHumanResource,)
 
