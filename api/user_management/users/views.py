@@ -46,6 +46,7 @@ class UsersAPIView(ListAPIView):
     search_fields = ['username', 'email', 'first_name', 'last_name', 'middle_name', 'profile__employee_id']
     ordering_fields = ['id', 'username']
     serializer_class = ReadUserSerializer
+<<<<<<< HEAD
     # NOTE: To not being called during Django initialization need to be called in the get_queryset method
     # queryset would only work directly on objects
     # queryset = get_users()
@@ -54,6 +55,9 @@ class UsersAPIView(ListAPIView):
 
     def get_queryset(self):
         return get_users()
+=======
+    queryset = get_users()
+>>>>>>> 86ee6dc (feat: search and filters)
 
     @swagger_auto_schema(
         responses={
