@@ -15,6 +15,7 @@ class ReadUserSerializer(serializers.ModelSerializer):
             'id',
             'username',
             'first_name',
+            'middle_name',
             'last_name',
             'email',
             'is_active',

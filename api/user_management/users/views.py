@@ -1,6 +1,11 @@
+# Django
+from django.db.models import Q
+
 # DRF
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework.generics import ListAPIView
+
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.pagination import PageNumberPagination
 
@@ -15,6 +20,13 @@ from .serializers import ReadUserSerializer, \
 # Services
 from domain.user.services.user import get_users, create_user
 
+# Library: django-filter
+from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework import filters
+
+# Filters
+from domain.user.filters.users import UserFilter
+
 # Memphis
 from asgiref.sync import async_to_sync
 from domain.memphis.services.producer import create_message
@@ -26,11 +38,16 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-class UsersAPIView(APIView):
+class UsersAPIView(ListAPIView):
 
     permission_classes = (IsAdminOrHumanResource,)
+    filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
+    filterset_class = UserFilter
+    search_fields = ['username', 'email', 'first_name', 'last_name', 'middle_name', 'profile__employee_id']
+    ordering_fields = ['id', 'username']
+    serializer_class = ReadUserSerializer
+    queryset = get_users()
 
-    @staticmethod
     @swagger_auto_schema(
         responses={
             200: PaginateReadUserSerializer()
@@ -40,13 +57,8 @@ class UsersAPIView(APIView):
         tags=["user-management.users"],
         query_serializer=PaginateQueryReadUserSerializer()
     )
-    def get(request):
-        logger.info(f"authenticated: {request.user}")
-        users = get_users()
-        paginator = PageNumberPagination()
-        result_page = paginator.paginate_queryset(users, request)
-        user_serializer = ReadUserSerializer(result_page, many=True)
-        return paginator.get_paginated_response(user_serializer.data)
+    def get(self, request, *args, **kwargs):
+        return super().get(request, *args, **kwargs)
 
     @staticmethod
     @swagger_auto_schema(
