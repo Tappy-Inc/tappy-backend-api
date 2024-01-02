@@ -77,6 +77,8 @@ INSTALLED_APPS = [
     'django.contrib.admin',
     # Library: django-storages
     'storages',
+    # Library: django-filter
+    'django_filters',
     # Domain
     'domain.common',
     'domain.system',
@@ -240,6 +242,9 @@ REST_FRAMEWORK = {
         # Library: djangorestframework-simplejwt
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
+    # Library: django-filter
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
+    # Library: djangorestframework
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
     'PAGE_SIZE': 10,
 }
