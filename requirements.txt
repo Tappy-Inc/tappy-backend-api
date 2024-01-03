@@ -29,7 +29,7 @@ mmh3==4.0.1
 nats-py==2.6.0
 packaging==23.2
 protobuf==4.25.1
-psycopg2-binary
+psycopg2-binary==2.9.9
 PyJWT==2.8.0
 python-dateutil==2.8.2
 pytz==2023.3.post1
