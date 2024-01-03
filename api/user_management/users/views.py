@@ -46,9 +46,14 @@ class UsersAPIView(ListAPIView):
     search_fields = ['username', 'email', 'first_name', 'last_name', 'middle_name', 'profile__employee_id']
     ordering_fields = ['id', 'username']
     serializer_class = ReadUserSerializer
-    queryset = get_users()
+    # NOTE: To not being called during Django initialization need to be called in the get_queryset method
+    # queryset would only work directly on objects
+    # queryset = get_users()
     # NOTE: To use pagination instead of Limit and Offset
     pagination_class = PageNumberPagination
+
+    def get_queryset(self):
+        return get_users()
 
     @swagger_auto_schema(
         responses={
