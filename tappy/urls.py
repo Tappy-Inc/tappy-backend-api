@@ -50,6 +50,7 @@ urlpatterns = [
     # Healt-check
     path('health-check', health_check_view),
     # Route to API
+    path('public/', include('api.public.urls')),
     path('authentication/', include('api.authentication.urls')),
     path('system-management/', include('api.system_management.urls')),
     path('user-management/', include('api.user_management.urls')),
