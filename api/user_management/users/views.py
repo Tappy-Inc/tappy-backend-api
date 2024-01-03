@@ -47,6 +47,8 @@ class UsersAPIView(ListAPIView):
     ordering_fields = ['id', 'username']
     serializer_class = ReadUserSerializer
     queryset = get_users()
+    # NOTE: To use pagination instead of Limit and Offset
+    pagination_class = PageNumberPagination
 
     @swagger_auto_schema(
         responses={
@@ -55,7 +57,9 @@ class UsersAPIView(ListAPIView):
         operation_description=f"This operation requires {permission_classes} permission",
         operation_id="users_list",
         tags=["user-management.users"],
-        query_serializer=PaginateQueryReadUserSerializer()
+        # NOTE: To use pagination instead of Limit and Offset (comment out the next line)
+        #       This will be override by the ListAPIView and it's classes
+        # query_serializer=PaginateQueryReadUserSerializer()
     )
     def get(self, request, *args, **kwargs):
         return super().get(request, *args, **kwargs)
