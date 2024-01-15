@@ -263,6 +263,7 @@ SWAGGER_SETTINGS = {
         }
     }
 }
+FORCE_SCRIPT_NAME = '/'
 
 # Library: django-cors-headers
 CORS_ALLOWED_ORIGINS = env.list("CORS_ALLOWED_ORIGINS")
