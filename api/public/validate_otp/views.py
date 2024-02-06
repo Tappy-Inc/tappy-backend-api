@@ -6,8 +6,7 @@ from rest_framework.permissions import AllowAny
 from .serializers import ValidateOTPResponseSerializer, ValidateOTPSerializer
 
 # Services
-from domain.user.services.user import reset_password, get_user_by_email
-from domain.user.caches.email import retrieve_reset_password_otp_code, delete_reset_password_otp_code
+from domain.user.caches.email import retrieve_reset_password_otp_code
 
 from drf_yasg.utils import swagger_auto_schema
 
