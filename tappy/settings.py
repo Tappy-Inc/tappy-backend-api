@@ -283,3 +283,15 @@ AWS_LOCATION = env('DO_LOCATION')
 
 # Django: abstract-user
 AUTH_USER_MODEL = "domain_user.User"
+
+# Library: django-redis
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": env('REDIS_CACHE_URL'),
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+            "PASSWORD": None if env('DJANGO_ENV') == 'local' else env('REDIS_CACHE_PASSWORD'),
+        }
+    }
+}

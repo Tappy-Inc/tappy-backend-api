@@ -71,33 +71,8 @@ def change_password(user: User, new_password: str) -> User:
     return user
 
 
-# TODO: Refactor Mailer and use Mailer Template
-def forgot_password(user: User) -> bool:
-    logger.info(f"Attempting to reset password for email: {user.email}")
-    # Generate a password reset token using Django's PasswordResetTokenGenerator
-    token_generator = PasswordResetTokenGenerator()
-    password_reset_token = token_generator.make_token(user)
-    user.password_reset_token = password_reset_token
-    user.save()
-    logger.info(f"Password reset token generated for user: {user}")
-    send_email(
-        from_email='support@tappy.com.ph',
-        to=[user.email],
-        subject='Password Reset Request',
-        html=f'<p>You have requested a password reset. Please use the following token: {password_reset_token}</p>'
-    )
-    logger.info(f"Password reset email sent to: {user.email}")
-    return True
-
-
-def reset_password(user: User, reset_code: str, new_password: str) -> bool:
-    # Validate the reset code using Django's PasswordResetTokenGenerator
-    token_generator = PasswordResetTokenGenerator()
-    if not token_generator.check_token(user, reset_code):
-        logger.error(f"Invalid reset code for email: {user.email}")
-        return False
+def reset_password(user: User, new_password: str) -> bool:
     user.set_password(new_password)
-    user.password_reset_token = None
     user.updated_at = timezone.now()
     user.save()
     logger.info(f"Password for \"{user}\" has been updated.")

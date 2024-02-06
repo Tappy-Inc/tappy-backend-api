@@ -6,7 +6,17 @@ from rest_framework.permissions import AllowAny
 from .serializers import ForgotPasswordSerializer, ForgotPasswordResponseSerializer
 
 # Services
-from domain.user.services.user import forgot_password, get_user_by_email
+from domain.user.services.user import get_user_by_email
+from domain.user.caches.email import store_reset_password_otp_code
+
+# Resend
+from domain.mailer.services.resend import send_forgot_password_email
+
+# Library: django-redis
+from django.core.cache import cache
+
+# Generating OTP
+import random
 
 from drf_yasg.utils import swagger_auto_schema
 
@@ -36,7 +46,9 @@ class ForgotPasswordAPIView(APIView):
         if user is None:
             return Response({"message": "User with this email does not exist."}, status=400)
 
-        forgot_password(user=user)
+        otp_code = random.randint(100000, 999999)
+        store_reset_password_otp_code(email=user.email, otp_code=otp_code, expiry=300)
+        send_forgot_password_email(email=user.email, opt_code=otp_code)
 
         response_serializer = ForgotPasswordResponseSerializer(data={"message": "Password reset email has been sent."})
         response_serializer.is_valid(raise_exception=True)

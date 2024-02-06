@@ -17,3 +17,15 @@ def send_email(from_email: str, to: List[str], subject: str, html: str) -> str:
     email = resend.Emails.send(params)
     logger.info(f"Email {email} has been sent.")
     return email
+
+
+def send_forgot_password_email(email: str, opt_code: int) -> bool:
+    logger.info(f"Password reset request received for: {email}")
+    send_email(
+        from_email='support@tappy.com.ph',
+        to=[email],
+        subject='Password Reset Request',
+        html=f'<p>You have requested a password reset. Please use the following token: {opt_code}</p>'
+    )
+    logger.info(f"Password reset email sent to: {email}")
+    return True

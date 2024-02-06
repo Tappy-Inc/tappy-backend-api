@@ -48,3 +48,11 @@ services:
       WAIT_HOSTS: postgres:5432
     command: >
       sh -c "watchmedo auto-restart -d . -p '*.py' --recursive -- python manage.py memphis_consumer"
+  redis:
+    container_name: artemis_redis
+    image: redis:alpine
+    command: "redis-server --save 60 1 --loglevel warning"
+    sysctls:
+      - net.core.somaxconn=1024
+    ports:
+      - "6379:6379"

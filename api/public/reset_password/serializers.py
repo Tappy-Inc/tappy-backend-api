@@ -5,7 +5,7 @@ from rest_framework import serializers
 class ResetPasswordSerializer(serializers.Serializer):
 
     email = serializers.EmailField()
-    reset_code = serializers.CharField(max_length=100)
+    otp_code = serializers.CharField(max_length=100)
     new_password = serializers.CharField(max_length=128)
     password_confirmation = serializers.CharField(max_length=128)
 

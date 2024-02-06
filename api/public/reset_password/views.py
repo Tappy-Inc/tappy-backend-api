@@ -7,6 +7,7 @@ from .serializers import ResetPasswordSerializer, ResetPasswordResponseSerialize
 
 # Services
 from domain.user.services.user import reset_password, get_user_by_email
+from domain.user.caches.email import retrieve_reset_password_otp_code, delete_reset_password_otp_code
 
 from drf_yasg.utils import swagger_auto_schema
 
@@ -33,18 +34,20 @@ class ResetPasswordAPIView(APIView):
         serializer.is_valid(raise_exception=True)
 
         email = serializer.validated_data['email']
-        reset_code = serializer.validated_data['reset_code']
+        otp_code = serializer.validated_data['otp_code']
         new_password = serializer.validated_data['new_password']
 
         user = get_user_by_email(email=email)
         if user is None:
             return Response({"message": "User with this email does not exist."}, status=400)
+        
+        reset_password_otp_code = retrieve_reset_password_otp_code(email=email)
+        if int(otp_code) != int(reset_password_otp_code):
+            return Response({"message": f"Invalid reset otp code for email: {email}"}, status=400)
 
-        password_reset = reset_password(user=user, reset_code=reset_code, new_password=new_password)
+        password_reset = reset_password(user=user, new_password=new_password)
+        delete_reset_password_otp_code(email=email)
         logger.info(f"Reset password response: {password_reset}")
-
-        if not password_reset:
-            return Response({"message": f"Invalid reset code for email: {email}"}, status=400)
 
         response_serializer = ResetPasswordResponseSerializer(data={"message": "Password has been reset successfully."})
         response_serializer.is_valid(raise_exception=True)
