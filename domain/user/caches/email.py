@@ -22,7 +22,7 @@ def retrieve_reset_password_otp_code(email: str) -> int:
     otp_code = cache.get(cache_key)
     if otp_code is None:
         logger.info(f"No OTP code found for email: {email}")
-        return otp_code
+        return None
 
     logger.info(f"Retrieved OTP code for email: {email}")
     return otp_code
