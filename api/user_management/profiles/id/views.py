@@ -95,7 +95,6 @@ class ProfileIdAPIView(APIView):
         update_profile(
             profile,
             profile_serializer.validated_data.get('bio', profile.bio),
-            profile_serializer.validated_data.get('location', profile.location),
             profile_serializer.validated_data.get('gender', profile.gender),
             profile_serializer.validated_data.get('civil_status', profile.civil_status),
             profile_serializer.validated_data.get('employee_id', profile.employee_id),
@@ -131,7 +130,6 @@ class ProfileIdAPIView(APIView):
         update_profile(
             profile,
             profile_serializer.validated_data.get('bio', profile.bio),
-            profile_serializer.validated_data.get('location', profile.location),
             profile_serializer.validated_data.get('gender', profile.gender),
             profile_serializer.validated_data.get('civil_status', profile.civil_status),
             profile_serializer.validated_data.get('employee_id', profile.employee_id),

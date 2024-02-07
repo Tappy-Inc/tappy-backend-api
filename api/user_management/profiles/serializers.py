@@ -15,7 +15,6 @@ class ReadProfileSerializer(serializers.ModelSerializer):
             'id',
             'user',
             'bio',
-            'location',
             'gender',
             'civil_status',
             'employee_id',
@@ -32,7 +31,6 @@ class CreateProfileSerializer(serializers.ModelSerializer):
         fields = [
             'user',
             'bio',
-            'location',
             'gender',
             'civil_status',
             'employee_id',

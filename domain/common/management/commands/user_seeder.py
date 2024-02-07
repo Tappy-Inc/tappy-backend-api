@@ -2,20 +2,22 @@ from django.core.management.base import BaseCommand
 from django.contrib.auth.models import Group
 
 # User Domain
+from domain.user.models.Address import Address
 from domain.user.models.User import User
-from domain.user.models.Profile import Profile
+from domain.user.models.Document import Document
 from domain.user.models.EducationalBackground import EducationalBackground
+from domain.user.models.Profile import Profile
 from domain.user.models.GovernmentInformation import GovernmentInformation
 from domain.user.models.WorkInformation import WorkInformation
 from domain.user.models.WorkSchedule import WorkSchedule
-from domain.user.models.Document import Document
 
 # System Domain
-from domain.system.models.Gender import Gender
+from domain.system.models.Department import Department
 from domain.system.models.EmploymentType import EmploymentType
+from domain.system.models.Gender import Gender
 from domain.system.models.JobLevel import JobLevel
 from domain.system.models.WorkSetup import WorkSetup
-from domain.system.models.Department import Department
+
 
 # Library: faker
 from faker import Faker
@@ -84,10 +86,21 @@ class Command(BaseCommand):
             user.groups.add(group)
             user.save()
 
+            address = Address(
+                user=user,
+                address=fake.address(),
+                address_line_2=fake.secondary_address(),
+                baranggay=fake.random_element(elements=['Baranggay 1', 'Baranggay 2', 'Baranggay 3']),
+                city=fake.city(),
+                state=fake.state(),
+                postal_code=fake.zipcode(),
+                country=fake.country()
+            )
+            address.save()
+
             profile = Profile(
                 user=user, 
                 bio=fake.text(max_nb_chars=500), 
-                location=fake.city(), 
                 gender=fake.random_element(elements=genders), 
                 civil_status=fake.random_element(elements=civil_statuses), 
                 employee_id=fake.random_int(min=100000, max=999999), 

@@ -1,5 +1,4 @@
 from django.db import models
-from simple_history.models import HistoricalRecords
 from domain.common.models.Base import BaseModel
 from domain.user.models.User import User
 from domain.system.models.Department import Department
@@ -18,7 +17,6 @@ class WorkInformation(BaseModel):
     job_level = models.ForeignKey(JobLevel, related_name='work_information', on_delete=models.CASCADE)
     employment_type = models.ForeignKey(EmploymentType, related_name='work_information', on_delete=models.CASCADE)
     work_setup = models.ForeignKey(WorkSetup, related_name='work_information', on_delete=models.CASCADE)
-    history = HistoricalRecords()
 
     def __str__(self):
         return f'{self.user.username} - {self.department.department_name} - {self.job_level.level}'

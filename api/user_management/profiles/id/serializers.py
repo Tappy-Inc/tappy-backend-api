@@ -16,7 +16,6 @@ class ReadProfileSerializer(serializers.ModelSerializer):
             'id',
             'user',
             'bio',
-            'location',
             'gender',
             'civil_status',
             'employee_id',
@@ -36,7 +35,6 @@ class UpdateProfileSerializer(serializers.ModelSerializer):
         model = Profile
         fields = [
             'bio',
-            'location',
             'gender',
             'civil_status',
             'employee_id',

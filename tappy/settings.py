@@ -68,8 +68,6 @@ INSTALLED_APPS = [
     'drf_yasg',
     # Library: django-cors-headers
     'corsheaders',
-    # Library: django-simple-history
-    'simple_history',
     # Library: django-unfold
     # Notes: It is necessary to have new option before django.contrib.admin to be sure it will be properly loaded, 
     # otherwise it is possible to get unexpected errors.
@@ -104,8 +102,6 @@ MIDDLEWARE = [
     # Library: django-cors-headers
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
-    # Library: django-simple-history
-    'simple_history.middleware.HistoryRequestMiddleware',
 ]
 
 ROOT_URLCONF = 'tappy.urls'

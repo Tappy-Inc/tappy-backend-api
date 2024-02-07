@@ -59,8 +59,7 @@ class ProfilesAPIView(APIView):
 
         profile = create_profile(
             user=profile_serializer.validated_data['user'], 
-            bio=profile_serializer.validated_data['bio'], 
-            location=profile_serializer.validated_data['location'],  
+            bio=profile_serializer.validated_data['bio'],  
             gender=profile_serializer.validated_data['gender'], 
             civil_status=profile_serializer.validated_data['civil_status'], 
             employee_id=profile_serializer.validated_data['employee_id'], 

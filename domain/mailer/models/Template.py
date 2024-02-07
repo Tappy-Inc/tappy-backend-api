@@ -1,5 +1,4 @@
 from django.db import models
-from simple_history.models import HistoricalRecords
 from domain.common.models.Base import BaseModel
 
 # Models
@@ -16,7 +15,6 @@ class Template(BaseModel):
     name = models.CharField(max_length=255)
     subject = models.CharField(max_length=255)
     body = models.TextField()
-    history = HistoricalRecords()
 
     def __str__(self):  # pragma: no cover
         return self.name

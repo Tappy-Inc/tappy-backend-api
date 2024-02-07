@@ -1,5 +1,4 @@
 from django.db import models
-from simple_history.models import HistoricalRecords
 from domain.common.models.Base import BaseModel
 from domain.user.models.User import User
 
@@ -23,7 +22,6 @@ class EducationalBackground(BaseModel):
     from_year = models.DateField()
     to_year = models.DateField()
     degree = models.CharField(max_length=255, null=True, blank=True)
-    history = HistoricalRecords()
 
     def __str__(self):
         return self.user.username

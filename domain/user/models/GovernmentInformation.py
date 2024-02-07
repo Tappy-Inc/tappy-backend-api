@@ -1,5 +1,4 @@
 from django.db import models
-from simple_history.models import HistoricalRecords
 from domain.common.models.Base import BaseModel
 from domain.user.models.User import User
 
@@ -19,7 +18,6 @@ class GovernmentInformation(BaseModel):
     passport_no = models.CharField(max_length=30, null=True, blank=True)
     tax_status = models.CharField(max_length=30, null=True, blank=True)
     rdo_number = models.CharField(max_length=30, null=True, blank=True)
-    history = HistoricalRecords()
 
     def __str__(self):
         return self.user.username

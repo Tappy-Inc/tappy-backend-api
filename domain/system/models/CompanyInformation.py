@@ -1,5 +1,4 @@
 from django.db import models
-from simple_history.models import HistoricalRecords
 from domain.common.models.Base import BaseModel
 
 import logging
@@ -14,7 +13,6 @@ class CompanyInformation(BaseModel):
     number = models.CharField(max_length=20)
     company_size = models.IntegerField()
     industry = models.CharField(max_length=50)
-    history = HistoricalRecords()
 
     def __str__(self):
         return self.company_name

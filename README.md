@@ -78,3 +78,14 @@ BEGIN
     END LOOP; 
 END $$;
 ```
+
+```
+update from initial migrate file
+
+('file_upload', models.FileField(upload_to=domain.user.models.Document.Document.user_directory_path)),
+
+to
+
+('file_upload', models.FileField(upload_to=domain.user.models.Document.user_directory_path)),
+
+```

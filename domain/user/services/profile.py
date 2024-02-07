@@ -32,7 +32,6 @@ def delete_profile(profile: Profile) -> Profile:
 def create_profile(
         user: User, 
         bio: str, 
-        location: str, 
         gender: Gender, 
         civil_status: str, 
         employee_id: str, 
@@ -42,7 +41,6 @@ def create_profile(
     profile = Profile.objects.create(
         user=user, 
         bio=bio, 
-        location=location, 
         gender=gender, 
         civil_status=civil_status, 
         employee_id=employee_id, 
@@ -56,7 +54,6 @@ def create_profile(
 def update_profile(
         profile: Profile,
         new_bio: str, 
-        new_location: str, 
         new_gender: Gender, 
         new_civil_status: str, 
         new_employee_id: str, 
@@ -64,7 +61,6 @@ def update_profile(
         new_manager: User
     ) -> Profile:
     profile.bio = new_bio
-    profile.location = new_location
     profile.gender = new_gender
     profile.civil_status = new_civil_status
     profile.employee_id = new_employee_id

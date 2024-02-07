@@ -3,6 +3,7 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 
 # Register your models here.
+from domain.user.models.Address import Address
 from domain.user.models.Document import Document
 from domain.user.models.EducationalBackground import EducationalBackground
 from domain.user.models.GovernmentInformation import GovernmentInformation
@@ -42,15 +43,20 @@ class UserAdmin(BaseUserAdmin, ModelAdmin):
 class GroupAdmin(BaseGroupAdmin, ModelAdmin):
     pass
 
-@admin.register(Document)
-class DocumentAdmin(ModelAdmin):
-    list_display = ('id', 'user', 'file_name', 'file_type', 'file_size', 'file_source', 'file_upload')
-    search_fields = ('file_name',)
+@admin.register(Address)
+class AddressAdmin(ModelAdmin):
+    list_display = ('id', 'user', 'address', 'address_line_2', 'baranggay', 'city', 'state', 'postal_code', 'country')
+    search_fields = ('user', 'city', 'state', 'country',)
 
 @admin.register(EducationalBackground)
 class EducationalBackgroundAdmin(ModelAdmin):
     list_display = ('id', 'user', 'education_type', 'school', 'from_year', 'to_year', 'degree')
     search_fields = ('user', 'school',)
+
+@admin.register(Document)
+class DocumentAdmin(ModelAdmin):
+    list_display = ('id', 'user', 'file_name', 'file_type', 'file_size', 'file_source', 'file_upload')
+    search_fields = ('file_name',)
 
 @admin.register(GovernmentInformation)
 class GovernmentInformationAdmin(ModelAdmin):
@@ -59,7 +65,7 @@ class GovernmentInformationAdmin(ModelAdmin):
 
 @admin.register(Profile)
 class ProfileAdmin(ModelAdmin):
-    list_display = ('id', 'user', 'get_user_first_name', 'get_user_last_name', 'get_user_email', 'get_bio', 'location', 'gender', 'civil_status', 'employee_id', 'birth_date', 'manager')
+    list_display = ('id', 'user', 'get_user_first_name', 'get_user_last_name', 'get_user_email', 'get_bio', 'gender', 'civil_status', 'employee_id', 'birth_date', 'manager')
     search_fields = ('user',)
     list_filter = ('gender', 'civil_status',)
 
