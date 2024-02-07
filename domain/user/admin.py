@@ -27,7 +27,7 @@ admin.site.unregister(Group)
 # Django: abstract-user
 fields = list(UserAdmin.fieldsets)
 # fields[0] = auth related fields, fields[1] = personal info, fields[2] = permissions, fields[3] = date joined, fields[4] = last login
-fields[1] = (None, {'fields': ('first_name', 'last_name', 'middle_name')})
+fields[1] = (None, {'fields': ('first_name', 'last_name', 'middle_name', 'email')})
 UserAdmin.fieldsets = tuple(fields)
 
 # Library: django-unfold
