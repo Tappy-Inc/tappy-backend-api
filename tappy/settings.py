@@ -77,6 +77,8 @@ INSTALLED_APPS = [
     'storages',
     # Library: django-filter
     'django_filters',
+    # Library: django_countries
+    'django_countries',
     # Domain
     'domain.common',
     'domain.system',

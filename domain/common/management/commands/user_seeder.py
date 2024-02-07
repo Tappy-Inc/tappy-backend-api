@@ -105,7 +105,9 @@ class Command(BaseCommand):
                 civil_status=fake.random_element(elements=civil_statuses), 
                 employee_id=fake.random_int(min=100000, max=999999), 
                 birth_date=fake.date_of_birth(),
-                manager=None
+                manager=None,
+                mobile_number=fake.msisdn()[:13],
+                nationality=fake.country_code(representation='alpha-2'),
             )
             profile.save()
 
