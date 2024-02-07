@@ -64,7 +64,9 @@ class ProfilesAPIView(APIView):
             civil_status=profile_serializer.validated_data['civil_status'], 
             employee_id=profile_serializer.validated_data['employee_id'], 
             birth_date=profile_serializer.validated_data['birth_date'], 
-            manager=profile_serializer.validated_data['manager']
+            manager=profile_serializer.validated_data['manager'],
+            mobile_number=profile_serializer.validated_data['mobile_number'],
+            nationality=profile_serializer.validated_data['nationality']
         )
         profile_serializer = ReadProfileSerializer(profile)
         return Response(profile_serializer.data)

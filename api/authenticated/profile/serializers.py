@@ -21,9 +21,10 @@ class ProfileSerializer(serializers.ModelSerializer):
             'civil_status',
             'employee_id',
             'birth_date',
-            'manager'
+            'manager',
+            'mobile_number',
+            'nationality'
         ]
-
 
 class UserSerializer(serializers.ModelSerializer):
     profile = ProfileSerializer(read_only=True)

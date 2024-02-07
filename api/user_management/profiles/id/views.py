@@ -99,7 +99,9 @@ class ProfileIdAPIView(APIView):
             profile_serializer.validated_data.get('civil_status', profile.civil_status),
             profile_serializer.validated_data.get('employee_id', profile.employee_id),
             profile_serializer.validated_data.get('birth_date', profile.birth_date),
-            profile_serializer.validated_data.get('manager', profile.manager)
+            profile_serializer.validated_data.get('manager', profile.manager),
+            profile_serializer.validated_data.get('mobile_number', profile.mobile_number),
+            profile_serializer.validated_data.get('nationality', profile.nationality)
         )
         profile_serializer = ReadProfileSerializer(profile)
         return Response(profile_serializer.data)
@@ -134,7 +136,10 @@ class ProfileIdAPIView(APIView):
             profile_serializer.validated_data.get('civil_status', profile.civil_status),
             profile_serializer.validated_data.get('employee_id', profile.employee_id),
             profile_serializer.validated_data.get('birth_date', profile.birth_date),
-            profile_serializer.validated_data.get('manager', profile.manager)
+            profile_serializer.validated_data.get('manager', profile.manager),
+            profile_serializer.validated_data.get('mobile_number', profile.mobile_number),
+            profile_serializer.validated_data.get('nationality', profile.nationality)
         )
         profile_serializer = ReadProfileSerializer(profile)
         return Response(profile_serializer.data)
+

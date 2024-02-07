@@ -17,3 +17,5 @@ class UserFilter(filters.FilterSet):
     profile__gender__gender = filters.CharFilter(field_name='profile__gender__gender', lookup_expr='exact')
     profile__civil_status = filters.CharFilter(field_name='profile__civil_status', lookup_expr='icontains')
     profile__birth_date = filters.DateFilter(field_name='profile__birth_date', lookup_expr='exact')
+    profile__mobile_number = filters.CharFilter(field_name='profile__mobile_number', lookup_expr='icontains')
+    profile__nationality = filters.CharFilter(field_name='profile__nationality', lookup_expr='icontains')

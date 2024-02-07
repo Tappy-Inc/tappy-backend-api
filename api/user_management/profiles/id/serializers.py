@@ -20,7 +20,9 @@ class ReadProfileSerializer(serializers.ModelSerializer):
             'civil_status',
             'employee_id',
             'birth_date',
-            'manager'
+            'manager',
+            'mobile_number',
+            'nationality'
         ]
 
 
@@ -39,7 +41,9 @@ class UpdateProfileSerializer(serializers.ModelSerializer):
             'civil_status',
             'employee_id',
             'birth_date',
-            'manager'
+            'manager',
+            'mobile_number',
+            'nationality'
         ]
 
 

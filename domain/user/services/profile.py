@@ -1,6 +1,8 @@
 from datetime import date
 from django.utils import timezone
 from typing import List
+# Library: django_countries
+from django_countries.fields import CountryField
 
 # Models
 from domain.user.models.User import User
@@ -36,7 +38,9 @@ def create_profile(
         civil_status: str, 
         employee_id: str, 
         birth_date: date, 
-        manager: User
+        manager: User,
+        mobile_number: str = None,
+        nationality: CountryField = None
     ) -> Profile:
     profile = Profile.objects.create(
         user=user, 
@@ -45,7 +49,9 @@ def create_profile(
         civil_status=civil_status, 
         employee_id=employee_id, 
         birth_date=birth_date, 
-        manager=manager
+        manager=manager,
+        mobile_number=mobile_number,
+        nationality=nationality
     )
     logger.info(f"\"{profile}\" has been created.")
     return profile
@@ -58,7 +64,9 @@ def update_profile(
         new_civil_status: str, 
         new_employee_id: str, 
         new_birth_date: date, 
-        new_manager: User
+        new_manager: User,
+        new_mobile_number: str = None,
+        new_nationality: CountryField = None
     ) -> Profile:
     profile.bio = new_bio
     profile.gender = new_gender
@@ -66,6 +74,8 @@ def update_profile(
     profile.employee_id = new_employee_id
     profile.birth_date = new_birth_date
     profile.manager = new_manager
+    profile.mobile_number = new_mobile_number
+    profile.nationality = new_nationality
     profile.updated_at = timezone.now()
     profile.save()
     logger.info(f"\"{profile}\" has been updated.")
